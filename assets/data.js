@@ -329,7 +329,7 @@ const STAGES = [
   },
   {
     id: 's5', n: '5', ico: '🌐', title: '"서버 데이터가 필요하다"',
-    color: 'var(--s5)', theme: 's5-theme',
+    color: 'var(--s5)', theme: 's5-theme', link: 'https://m1zz.github.io/network',
     problem: 'API를 호출해서 JSON을 파싱하고 싶습니다 / 데이터를 앱에 저장하고 싶습니다',
     solve: 'HTTP, URLSession, Codable, 로컬 DB, 클라우드 동기화, 보안',
     analogy: '🛵 오토바이',
@@ -406,7 +406,7 @@ const STAGES = [
   },
   {
     id: 's6', n: '6', ico: '🧊', title: '"UI가 버벅이고 앱이 멈춘다"',
-    color: 'var(--s6)', theme: 's6-theme',
+    color: 'var(--s6)', theme: 's6-theme', link: 'https://m1zz.github.io/ios-concurrency-performance/',
     problem: '네트워크 요청 중 화면이 얼어붙습니다 / 스크롤 중 프레임 드랍이 생깁니다',
     solve: '동시성(GCD, async/await, Actor), 렌더링 최적화, Combine',
     analogy: '🚗 자동차',
