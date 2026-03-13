@@ -5,6 +5,11 @@ const STAGES = [
     color: 'var(--s1)', theme: 's1-theme',
     problem: '아무것도 없다 — 화면에 뭔가를 띄우고 싶다',
     solve: 'SwiftUI 기본, 상태 관리, 화면 전환, Swift 필수 문법',
+    link: 'https://m1zz.github.io/cs-swiftUI/',
+    analogy: '🛹 스케이트보드',
+    status: '동작하는 앱을 만들 수 있다. 화면을 구성하고, 버튼을 눌러 상태를 바꾸고, 데이터를 목록으로 보여줄 수 있다. 할 일 앱 정도는 혼자 만들어 낼 수 있는 상태.',
+    gap: '데이터가 100개만 넘어도 느려지는 이유를 모른다. Array, Dictionary, Set 중 뭘 써야 하는지 감으로 고른다. "일단 동작은 하는데 왜 느린지 모르겠다"는 상태.',
+    next: '스케이트보드로 목적지에 갈 수는 있지만, 오르막길에서 멈춘다. 속도가 필요하다.',
     chapters: [
       {
         id: '1-1', ico: '📱', title: '화면에 뭔가 띄우기',
@@ -54,6 +59,11 @@ const STAGES = [
     color: 'var(--s2)', theme: 's2-theme',
     problem: '목록에 데이터가 많아지니 스크롤이 버벅인다 / 검색 결과가 늦게 뜬다',
     solve: '자료구조 선택 기준, 알고리즘 복잡도, 올바른 컬렉션 사용',
+    link: 'https://m1zz.github.io/swift-data-structures/',
+    analogy: '🛹 더 빠른 스케이트보드',
+    status: '느린 코드를 찾아서 고칠 수 있다. Array 대신 Dictionary를 쓰면 왜 빨라지는지 설명할 수 있다. Big-O를 읽고, Instruments로 병목을 찾는다. 코딩 테스트 기초 문제를 풀 수 있다.',
+    gap: '기능이 늘면서 코드가 스파게티가 된다. 파일 하나가 1000줄이 넘고, 수정하면 다른 곳이 깨진다. "빠르지만 읽을 수 없는 코드"가 되어간다.',
+    next: '속도는 얻었지만, 커브를 돌 수 없다. 구조가 필요하다.',
     chapters: [
       {
         id: '2-1', ico: '🔬', title: '느린 이유를 숫자로 보기',
@@ -92,6 +102,10 @@ const STAGES = [
     color: 'var(--s3)', theme: 's3-theme',
     problem: '기능이 늘자 파일이 1000줄 / 수정하면 다른 곳이 깨진다 / 재사용이 안 된다',
     solve: 'OOP, SOLID, 프로토콜, 디자인 패턴, 아키텍처, 모듈화',
+    analogy: '🚲 자전거',
+    status: '코드를 책임 단위로 나눌 수 있다. MVVM으로 구조를 잡고, 프로토콜로 의존성을 분리한다. 수정해도 다른 곳이 안 깨지는 코드를 짠다. 팀 프로젝트에서 PR 리뷰를 줄 수 있는 수준.',
+    gap: '앱이 크래시가 나는데 원인을 모른다. deinit이 안 불리고, 메모리가 계속 늘어간다. 구조는 좋은데 앱이 죽는다.',
+    next: '자전거를 탈 수 있게 됐다. 하지만 체인이 끊어지면 고칠 줄 모른다.',
     chapters: [
       {
         id: '3-1', ico: '🧩', title: '책임을 나누는 방법',
@@ -131,6 +145,10 @@ const STAGES = [
     color: 'var(--s4)', theme: 's4-theme',
     problem: 'EXC_BAD_ACCESS 크래시 / 메모리 경고 후 강제 종료 / deinit이 불리지 않는다',
     solve: 'ARC 원리, 순환 참조, weak/unowned, Instruments, 에러 처리',
+    analogy: '🚲 정비할 줄 아는 자전거',
+    status: '메모리 누수를 찾아서 고칠 수 있다. ARC를 이해하고, weak/unowned를 정확히 쓴다. Instruments로 Leak을 잡고, 에러를 우아하게 처리한다. 크래시 없는 안정적인 앱을 만들 수 있다.',
+    gap: '오프라인에서만 동작하는 앱이다. 서버 데이터를 가져오고 싶은데 URLSession이 복잡하게 생겼다. JSON을 파싱하고 로컬에 저장하는 방법을 모른다.',
+    next: '자전거는 완벽해졌다. 하지만 혼자 힘으로만 간다. 엔진이 필요하다.',
     chapters: [
       {
         id: '4-1', ico: '🧠', title: '메모리가 어떻게 관리되는가',
@@ -170,6 +188,10 @@ const STAGES = [
     color: 'var(--s5)', theme: 's5-theme',
     problem: 'API를 호출해서 JSON을 파싱하고 싶다 / 데이터를 앱에 저장하고 싶다',
     solve: 'HTTP, URLSession, Codable, 로컬 DB, 클라우드 동기화, 보안',
+    analogy: '🛵 오토바이',
+    status: '서버와 통신하는 앱을 만들 수 있다. REST API를 호출하고, JSON을 파싱하고, Core Data에 저장한다. 로그인, 토큰 관리, HTTPS 보안까지 구현한다. 실제 서비스 수준의 앱을 만들 수 있는 상태.',
+    gap: '네트워크 요청 중 UI가 멈춘다. 이미지를 여러 장 불러오면 스크롤이 버벅인다. 메인 스레드가 뭔지, 왜 async/await을 써야 하는지 정확히 모른다.',
+    next: '오토바이로 달릴 수 있다. 하지만 동시에 두 가지를 할 수 없다.',
     chapters: [
       {
         id: '5-1', ico: '📡', title: 'HTTP와 REST API',
@@ -210,6 +232,10 @@ const STAGES = [
     color: 'var(--s6)', theme: 's6-theme',
     problem: '네트워크 요청 중 화면이 얼어붙는다 / 스크롤 중 프레임 드랍이 생긴다',
     solve: '동시성(GCD, async/await, Actor), 렌더링 최적화, Combine',
+    analogy: '🚗 자동차',
+    status: '부드럽고 빠른 앱을 만들 수 있다. async/await로 비동기를 처리하고, Actor로 데이터 레이스를 방지한다. 렌더링을 최적화하고, Combine으로 복잡한 이벤트를 조합한다. 사용자가 체감하는 품질이 확 달라지는 단계.',
+    gap: '"이 코드 수정해도 될까?" 두려움이 있다. 테스트가 없어서 배포할 때마다 긴장한다. 수동으로 빌드하고 수동으로 배포한다.',
+    next: '자동차를 몰 수 있다. 하지만 보험도 없고, 정비소도 없다.',
     chapters: [
       {
         id: '6-1', ico: '⚙️', title: '왜 메인 스레드가 중요한가',
@@ -248,6 +274,10 @@ const STAGES = [
     color: 'var(--s7)', theme: 's7-theme',
     problem: '배포 후 버그 발견 / 수정할 때마다 다른 곳이 깨질까 두렵다 / 배포가 귀찮다',
     solve: '테스팅, TDD, CI/CD, 크래시 분석, 앱 수익화와 운영',
+    analogy: '🚗 보험과 정비소가 있는 자동차',
+    status: '테스트를 작성하고, CI/CD로 자동 배포한다. 크래시 리포트를 분석하고, 사용자 행동을 추적한다. 앱으로 수익을 낸다. 혼자서 앱을 만들고, 배포하고, 운영하고, 돈을 버는 완전한 독립 개발자.',
+    gap: '"왜 이렇게 동작하는가"의 근본 원리를 모른다. CPU가 코드를 어떻게 실행하는지, 컴파일러가 무엇을 하는지, async/await이 OS 레벨에서 어떻게 구현되는지 설명할 수 없다.',
+    next: '자동차를 잘 운전한다. 하지만 엔진이 어떻게 돌아가는지는 모른다.',
     chapters: [
       {
         id: '7-1', ico: '✅', title: '테스트 작성하기',
@@ -287,6 +317,10 @@ const STAGES = [
     color: 'var(--s8)', theme: 's8-theme',
     problem: '왜 이렇게 동작하는지 근본 원리가 궁금하다 / 시니어로 성장하고 싶다',
     solve: '컴퓨터 구조, OS 원리, 컴파일러, 수학적 기초, 언어 이론',
+    analogy: '🚗 엔진을 이해하는 드라이버',
+    status: 'CPU, OS, 컴파일러의 원리를 이해한다. 왜 그렇게 동작하는지 설명할 수 있고, 새로운 기술이 나와도 본질을 꿰뚫는다. 주니어를 가르칠 수 있고, 기술 의사결정의 근거를 댈 수 있다. 시니어 개발자.',
+    gap: '',
+    next: '',
     chapters: [
       {
         id: '8-1', ico: '💻', title: '컴퓨터는 어떻게 코드를 실행하는가',

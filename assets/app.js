@@ -93,11 +93,26 @@ STAGES.forEach(stage => {
       </div>`;
   });
 
+  const linkHTML = stage.link ? `<a href="${stage.link}" target="_blank" rel="noopener" class="stage-link">강의 바로가기 →</a>` : '';
+
+  const gapHTML = stage.gap ? `
+    <div class="growth-card gap-card">
+      <div class="growth-label">⚠️ 하지만 아직</div>
+      <p class="growth-text">${esc(stage.gap)}</p>
+    </div>` : '';
+
+  const nextHTML = stage.next ? `
+    <div class="growth-card next-card">
+      <div class="growth-label">→ 다음 단계가 필요한 이유</div>
+      <p class="growth-text">${esc(stage.next)}</p>
+    </div>` : '';
+
   section.innerHTML = `
     <div class="stage-header" data-n="${stage.n}">
       <div>
-        <div class="stage-tag">STAGE ${stage.n}</div>
+        <div class="stage-tag">STAGE ${stage.n} ${stage.analogy ? '· ' + stage.analogy : ''}</div>
         <div class="stage-title">${stage.ico} ${esc(stage.title)}</div>
+        ${linkHTML}
       </div>
       <div class="stage-meta">
         <div class="meta-box problem">
@@ -109,6 +124,14 @@ STAGES.forEach(stage => {
           ${esc(stage.solve)}
         </div>
       </div>
+    </div>
+    <div class="growth-section">
+      <div class="growth-card status-card">
+        <div class="growth-label">✅ 이 단계를 마친 너는</div>
+        <p class="growth-text">${esc(stage.status)}</p>
+      </div>
+      ${gapHTML}
+      ${nextHTML}
     </div>
     <div class="chapters">${chaptersHTML}</div>
   `;
@@ -201,6 +224,31 @@ searchInput.addEventListener('input', () => {
   });
 
   searchCount.textContent = total ? `${total}개` : '없음';
+});
+
+/* ── DATA STRUCTURE QUIZ ──────────────────────────────────── */
+document.querySelectorAll('.scenario-options').forEach(group => {
+  const scenario = group.dataset.scenario;
+  group.querySelectorAll('.option-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Mark selected
+      group.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      // Show result
+      const resultPanel = document.getElementById('result-' + scenario);
+      resultPanel.classList.add('visible');
+    });
+  });
+});
+
+/* ── GRAPH COMPARISON TABS ────────────────────────────────── */
+document.querySelectorAll('.compare-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.compare-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.graph-panel').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('graph-' + tab.dataset.graph)?.classList.add('active');
+  });
 });
 
 /* ── SMOOTH ANCHOR SCROLL (offset for sticky bar) ─────────── */
