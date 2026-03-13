@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="앱을 만들다 마주치는 문제를 해결하며 컴퓨터 공학을 배우는 Top-Down 커리큘럼. 개발자리 Leeo의 iOS 개발자를 위한 컴퓨터 공학 로드맵.">
-<meta property="og:title" content="앱 개발자를 위한 컴퓨터 공학 커리큘럼 — 개발자리">
-<meta property="og:description" content="변화가 빠른 세상에서 바닥부터 쌓아올리는 건 너무 느립니다. 먼저 만들고, 부딪히고, 그때 필요한 지식을 깊이 파는 생존을 위한 Top-Down 어프로치입니다.">
+<meta name="description" data-i18n-attr="content:metaDesc" content="앱을 만들다 마주치는 문제를 해결하며 컴퓨터 공학을 배우는 Top-Down 커리큘럼. 개발자리 Leeo의 iOS 개발자를 위한 컴퓨터 공학 로드맵.">
+<meta property="og:title" data-i18n-attr="content:ogTitle" content="앱 개발자를 위한 컴퓨터 공학 커리큘럼 — 개발자리">
+<meta property="og:description" data-i18n-attr="content:ogDesc" content="변화가 빠른 세상에서 바닥부터 쌓아올리는 건 너무 느립니다. 먼저 만들고, 부딪히고, 그때 필요한 지식을 깊이 파는 생존을 위한 Top-Down 어프로치입니다.">
 <meta property="og:type" content="website">
-<title>앱 개발자를 위한 컴퓨터 공학 커리큘럼 — 개발자리</title>
+<title data-i18n="pageTitle">앱 개발자를 위한 컴퓨터 공학 커리큘럼 — 개발자리</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;1,9..144,300&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -26,9 +26,9 @@
 <section class="hero" id="hero">
   <div class="hero-glow"></div>
   <div class="hero-content">
-    <p class="hero-label">개발자리 · Top-Down 컴퓨터 공학 Curriculum</p>
-    <h1 class="hero-title">앱 개발자를 위한<br><em>컴퓨터 공학</em><br>지식</h1>
-    <p class="hero-sub">변화가 빠른 세상에서 바닥부터 쌓아올리는 건 너무 느립니다.<br>먼저 만들고, 부딪히고, 그때 필요한 지식을 깊이 파는<br>생존을 위한 Top-Down 어프로치입니다.</p>
+    <p class="hero-label" data-i18n="heroLabel">개발자리 · Top-Down 컴퓨터 공학 Curriculum</p>
+    <h1 class="hero-title" data-i18n-html="heroTitle">앱 개발자를 위한<br><em>컴퓨터 공학</em><br>지식</h1>
+    <p class="hero-sub" data-i18n-html="heroSub">변화가 빠른 세상에서 바닥부터 쌓아올리는 건 너무 느립니다.<br>먼저 만들고, 부딪히고, 그때 필요한 지식을 깊이 파는<br>생존을 위한 Top-Down 어프로치입니다.</p>
     <div class="hero-meta">
       <span class="meta-pill">9 STAGES</span>
       <span class="meta-pill">28 CHAPTERS</span>
@@ -37,11 +37,11 @@
     </div>
     <div class="hero-req">
       <span class="req-icon">💻</span>
-      <span class="req-text">시작하려면 <strong>Mac</strong>과 <strong>Xcode</strong>만 있으면 됩니다.</span>
+      <span class="req-text" data-i18n-html="heroReq">시작하려면 <strong>Mac</strong>과 <strong>Xcode</strong>만 있으면 됩니다.</span>
     </div>
     <div class="hero-actions">
-      <a href="#s1" class="btn-primary">커리큘럼 보기</a>
-      <a href="#cs-map" class="btn-ghost">전공 과목 매칭 보기 →</a>
+      <a href="#s1" class="btn-primary" data-i18n="btnCurriculum">커리큘럼 보기</a>
+      <a href="#cs-map" class="btn-ghost" data-i18n="btnCsMap">전공 과목 매칭 보기 →</a>
     </div>
   </div>
   <div class="hero-flow">
@@ -57,21 +57,21 @@
 <section class="compare" id="compare">
   <div class="compare-inner">
     <div class="compare-header">
-      <h2 class="compare-title">왜 Top-Down인가?</h2>
+      <h2 class="compare-title" data-i18n="graphTitle">왜 Top-Down인가?</h2>
       <div class="compare-tabs">
-        <button class="compare-tab active" data-graph="topdown">Top-Down의 강점</button>
-        <button class="compare-tab" data-graph="bottomup">Bottom-Up의 강점</button>
+        <button class="compare-tab active" data-graph="topdown" data-i18n="tabTopDown">Top-Down의 강점</button>
+        <button class="compare-tab" data-graph="bottomup" data-i18n="tabBottomUp">Bottom-Up의 강점</button>
       </div>
     </div>
 
     <!-- Graph 1: Top-Down 강점 -->
     <div class="graph-panel active" id="graph-topdown">
-      <p class="graph-desc">실무 적용력 기준으로, Top-Down은 주어진 시간 안에 필요한 역량에 도달합니다.</p>
+      <p class="graph-desc" data-i18n="graphDescTD">실무 적용력 기준으로, Top-Down은 주어진 시간 안에 필요한 역량에 도달합니다.</p>
       <div class="graph-container">
         <div class="graph-y-axis">
-          <span>높음</span>
-          <span class="graph-y-label">실무 적용력</span>
-          <span>낮음</span>
+          <span data-i18n="yHigh">높음</span>
+          <span class="graph-y-label" data-i18n="yLabel">실무 적용력</span>
+          <span data-i18n="yLow">낮음</span>
         </div>
         <div class="graph-area">
           <div class="graph-wrap">
@@ -87,65 +87,70 @@
               <path d="M0,240 C80,235 160,210 240,175 S400,100 500,60" fill="none" stroke="var(--dim)" stroke-width="2.5" stroke-dasharray="6,4" vector-effect="non-scaling-stroke" class="graph-line"/>
               <!-- Top-Down: fast early rise -->
               <path d="M0,240 C60,180 120,80 200,50 S350,25 500,15" fill="none" stroke="var(--s5)" stroke-width="3" vector-effect="non-scaling-stroke" class="graph-line"/>
-              <!-- Intersection markers -->
-              <circle cx="155" cy="72" r="4" fill="#ef4444" opacity=".8"/>
-              <circle cx="380" cy="105" r="4" fill="var(--dim)" opacity=".6"/>
+              <!-- Intersection: Top-Down ✕ horizontal deadline -->
+              <circle cx="130" cy="90" r="5" fill="#ef4444" stroke="#fff" stroke-width="1.5"/>
+              <!-- Intersection: Bottom-Up ✕ horizontal deadline -->
+              <circle cx="415" cy="90" r="5" fill="var(--dim)" stroke="#fff" stroke-width="1.5"/>
+              <!-- Intersection: Top-Down ✕ vertical deadline -->
+              <circle cx="250" cy="38" r="4" fill="var(--s5)" stroke="#fff" stroke-width="1.5"/>
+              <!-- Intersection: Bottom-Up ✕ vertical deadline -->
+              <circle cx="250" cy="168" r="4" fill="var(--dim)" stroke="#fff" stroke-width="1.5"/>
             </svg>
-            <span class="deadline-label deadline-h" style="top:32%;right:4px;">요구되는 역량 수준</span>
-            <span class="deadline-label deadline-v" style="left:50%;">남은 시간</span>
+            <span class="deadline-label deadline-h" style="top:28%;right:4px;" data-i18n="deadlineH">요구되는 역량 수준</span>
+            <span class="deadline-label deadline-v" style="left:50%;bottom:-22px;" data-i18n="deadlineV">남은 시간</span>
           </div>
           <div class="graph-x-axis">
-            <span>시작</span>
-            <span>6개월</span>
-            <span>1년</span>
-            <span>2년</span>
+            <span data-i18n="xStart">시작</span>
+            <span data-i18n="x6mo">6개월</span>
+            <span data-i18n="x1yr">1년</span>
+            <span data-i18n="x2yr">2년</span>
           </div>
         </div>
       </div>
       <div class="graph-legend">
         <div class="legend-item">
           <span class="legend-line" style="background:var(--s5)"></span>
-          <span><strong>Top-Down</strong> — 앱을 만들며 필요한 것부터</span>
+          <span data-i18n-html="legendTD"><strong>Top-Down</strong> — 앱을 만들며 필요한 것부터</span>
         </div>
         <div class="legend-item">
           <span class="legend-line dashed" style="background:var(--dim)"></span>
-          <span><strong>Bottom-Up</strong> — 기초 이론부터 차근차근</span>
+          <span data-i18n-html="legendBU_td"><strong>Bottom-Up</strong> — 기초 이론부터 차근차근</span>
         </div>
         <div class="legend-item">
           <span class="legend-line" style="background:#ef4444"></span>
-          <span><strong>남은 시간</strong> — 나에게 주어진 시간과 요구 역량</span>
+          <span data-i18n-html="legendDeadline"><strong>남은 시간</strong> — 나에게 주어진 시간과 요구 역량</span>
         </div>
       </div>
       <div class="graph-insights">
         <div class="insight-card">
           <span class="insight-ico">🚀</span>
           <div>
-            <div class="insight-title">앱을 만들 수 있는 시점</div>
-            <div class="insight-body">Top-Down은 첫 달부터 동작하는 앱을 만듭니다.<br>Bottom-Up은 자료구조를 배우는 중입니다.</div>
+            <div class="insight-title" data-i18n="insightAppTitle">앱을 만들 수 있는 시점</div>
+            <div class="insight-body" data-i18n-html="insightAppBody">Top-Down은 첫 달부터 동작하는 앱을 만듭니다.<br>Bottom-Up은 자료구조를 배우는 중입니다.</div>
           </div>
         </div>
         <div class="insight-card">
           <span class="insight-ico">🔧</span>
           <div>
-            <div class="insight-title">문제 해결 능력</div>
-            <div class="insight-body">실제 버그를 잡아본 사람이 디버깅을 압니다.<br>교과서 예제만으로는 실전 감각이 생기지 않습니다.</div>
+            <div class="insight-title" data-i18n="insightDebugTitle">문제 해결 능력</div>
+            <div class="insight-body" data-i18n-html="insightDebugBody">실제 버그를 잡아본 사람이 디버깅을 압니다.<br>교과서 예제만으로는 실전 감각이 생기지 않습니다.</div>
           </div>
         </div>
         <div class="insight-card">
           <span class="insight-ico">💰</span>
           <div>
-            <div class="insight-title">생존과 수익</div>
-            <div class="insight-body">빠르게 결과물을 내야 살아남는 시대입니다.<br>완벽한 준비보다 빠른 실행이 기회를 만듭니다.</div>
+            <div class="insight-title" data-i18n="insightSurvivalTitle">생존과 수익</div>
+            <div class="insight-body" data-i18n-html="insightSurvivalBody">빠르게 결과물을 내야 살아남는 시대입니다.<br>완벽한 준비보다 빠른 실행이 기회를 만듭니다.</div>
           </div>
         </div>
       </div>
       <details class="graph-sources">
-        <summary class="sources-toggle">📎 근거 펼쳐보기</summary>
+        <summary class="sources-toggle" data-i18n="sourcesToggle">📎 근거 펼쳐보기</summary>
         <div class="sources-body">
           <ul>
-            <li><strong>PBL 메타분석</strong> — 66개 연구, 190개 효과값 분석. 프로젝트 기반 학습이 동기부여·만족도·협업 능력에서 유의미하게 높음 <em>(Frontiers in Psychology, 2023)</em></li>
-            <li><strong>fast.ai 사례</strong> — 1강부터 최신 모델을 돌리고, 점차 원리를 벗겨가는 Top-Down 방식. 가장 널리 쓰이는 딥러닝 코스 <em>(Jeremy Howard)</em></li>
-            <li><strong>PBL 최적 기간</strong> — 9~18주가 측정 가능한 학습 성과의 최적 구간 <em>(ScienceDirect, 2025 메타분석)</em></li>
+            <li data-i18n-html="sourcePBL"><strong>PBL 메타분석</strong> — 66개 연구, 190개 효과값 분석. 프로젝트 기반 학습이 동기부여·만족도·협업 능력에서 유의미하게 높음 <em>(Frontiers in Psychology, 2023)</em></li>
+            <li data-i18n-html="sourceFastAI"><strong>fast.ai 사례</strong> — 1강부터 최신 모델을 돌리고, 점차 원리를 벗겨가는 Top-Down 방식. 가장 널리 쓰이는 딥러닝 코스 <em>(Jeremy Howard)</em></li>
+            <li data-i18n-html="sourcePBLDuration"><strong>PBL 최적 기간</strong> — 9~18주가 측정 가능한 학습 성과의 최적 구간 <em>(ScienceDirect, 2025 메타분석)</em></li>
           </ul>
         </div>
       </details>
@@ -153,12 +158,12 @@
 
     <!-- Graph 2: Bottom-Up 강점 -->
     <div class="graph-panel" id="graph-bottomup">
-      <p class="graph-desc">하지만 대학 커리큘럼 순서가 주는 장점도 분명히 존재합니다.</p>
+      <p class="graph-desc" data-i18n="graphDescBU">하지만 대학 커리큘럼 순서가 주는 장점도 분명히 존재합니다.</p>
       <div class="graph-container">
         <div class="graph-y-axis">
-          <span>높음</span>
-          <span class="graph-y-label">실무 적용력</span>
-          <span>낮음</span>
+          <span data-i18n="yHigh">높음</span>
+          <span class="graph-y-label" data-i18n="yLabel">실무 적용력</span>
+          <span data-i18n="yLow">낮음</span>
         </div>
         <div class="graph-area">
           <div class="graph-wrap">
@@ -174,63 +179,71 @@
               <path d="M0,240 C60,180 120,90 200,65 S300,55 400,50 L500,45" fill="none" stroke="var(--s5)" stroke-width="2.5" stroke-dasharray="6,4" vector-effect="non-scaling-stroke" class="graph-line"/>
               <!-- Bottom-Up: slow but deep -->
               <path d="M0,240 C100,230 180,200 250,150 S380,50 500,15" fill="none" stroke="var(--s1)" stroke-width="3" vector-effect="non-scaling-stroke" class="graph-line"/>
+              <!-- Intersection: Top-Down ✕ horizontal deadline -->
+              <circle cx="122" cy="90" r="5" fill="var(--s5)" stroke="#fff" stroke-width="1.5"/>
+              <!-- Intersection: Bottom-Up ✕ horizontal deadline -->
+              <circle cx="330" cy="90" r="5" fill="var(--s1)" stroke="#fff" stroke-width="1.5"/>
+              <!-- Intersection: Top-Down ✕ vertical deadline -->
+              <circle cx="125" cy="88" r="4" fill="#ef4444" stroke="#fff" stroke-width="1.5"/>
+              <!-- Intersection: Bottom-Up ✕ vertical deadline -->
+              <circle cx="125" cy="225" r="4" fill="var(--dim)" stroke="#fff" stroke-width="1.5"/>
             </svg>
-            <span class="deadline-label deadline-h" style="top:32%;right:4px;">요구되는 역량 수준</span>
-            <span class="deadline-label deadline-v" style="left:25%;">남은 시간</span>
+            <span class="deadline-label deadline-h" style="top:28%;right:4px;" data-i18n="deadlineH">요구되는 역량 수준</span>
+            <span class="deadline-label deadline-v" style="left:25%;bottom:-22px;" data-i18n="deadlineV">남은 시간</span>
           </div>
           <div class="graph-x-axis">
-            <span>시작</span>
-            <span>1년</span>
-            <span>2년</span>
-            <span>4년+</span>
+            <span data-i18n="xStart">시작</span>
+            <span data-i18n="x1yr">1년</span>
+            <span data-i18n="x2yr">2년</span>
+            <span data-i18n="x4yr">4년+</span>
           </div>
         </div>
       </div>
       <div class="graph-legend">
         <div class="legend-item">
           <span class="legend-line" style="background:var(--s1)"></span>
-          <span><strong>Bottom-Up</strong> — 대학 커리큘럼 순서</span>
+          <span data-i18n-html="legendBU"><strong>Bottom-Up</strong> — 대학 커리큘럼 순서</span>
         </div>
         <div class="legend-item">
           <span class="legend-line dashed" style="background:var(--s5)"></span>
-          <span><strong>Top-Down</strong> — 실무 중심 학습</span>
+          <span data-i18n-html="legendTD_bu"><strong>Top-Down</strong> — 실무 중심 학습</span>
         </div>
         <div class="legend-item">
           <span class="legend-line" style="background:#ef4444"></span>
-          <span><strong>남은 시간</strong> — 나에게 주어진 시간과 요구 역량</span>
+          <span data-i18n-html="legendDeadline"><strong>남은 시간</strong> — 나에게 주어진 시간과 요구 역량</span>
         </div>
       </div>
       <div class="graph-insights">
         <div class="insight-card">
           <span class="insight-ico">🧱</span>
           <div>
-            <div class="insight-title">탄탄한 기초 체력</div>
-            <div class="insight-body">OS, 컴퓨터구조, 알고리즘을 체계적으로 쌓으면<br>어떤 기술이 와도 본질을 꿰뚫을 수 있습니다.</div>
+            <div class="insight-title" data-i18n="insightFoundationTitle">탄탄한 기초 체력</div>
+            <div class="insight-body" data-i18n-html="insightFoundationBody">OS, 컴퓨터구조, 알고리즘을 체계적으로 쌓으면<br>어떤 기술이 와도 본질을 꿰뚫을 수 있습니다.</div>
           </div>
         </div>
         <div class="insight-card">
           <span class="insight-ico">🔬</span>
           <div>
-            <div class="insight-title">깊은 이해</div>
-            <div class="insight-body">Top-Down은 "왜?"를 나중에 채우지만,<br>Bottom-Up은 처음부터 원리를 이해하고 넘어갑니다.</div>
+            <div class="insight-title" data-i18n="insightDeepTitle">깊은 이해</div>
+            <div class="insight-body" data-i18n-html="insightDeepBody">Top-Down은 "왜?"를 나중에 채우지만,<br>Bottom-Up은 처음부터 원리를 이해하고 넘어갑니다.</div>
           </div>
         </div>
         <div class="insight-card">
           <span class="insight-ico">🎯</span>
           <div>
-            <div class="insight-title">그래서 이 커리큘럼은</div>
-            <div class="insight-body">Top-Down으로 빠르게 시작하되,<br>각 단계에서 필요한 기초를 <strong>깊이 있게</strong> 다룹니다.</div>
+            <div class="insight-title" data-i18n="insightHybridTitle">그래서 이 커리큘럼은</div>
+            <div class="insight-body" data-i18n-html="insightHybridBody">Top-Down으로 빠르게 시작하되,<br>각 단계에서 필요한 기초를 <strong>깊이 있게</strong> 다룹니다.</div>
           </div>
         </div>
       </div>
       <details class="graph-sources">
-        <summary class="sources-toggle">📎 근거 펼쳐보기</summary>
+        <summary class="sources-toggle" data-i18n="sourcesToggle">📎 근거 펼쳐보기</summary>
         <div class="sources-body">
           <ul>
-            <li><strong>인지부하 이론</strong> — 초보자에게는 가이드된 예제가 자유 탐색보다 효과적. 비구조적 문제풀이는 작업 기억을 과부하시킴 <em>(Sweller, 1988)</em></li>
-            <li><strong>전문성 역전 효과</strong> — 초보자에게 좋은 교수법이 숙련자에게는 오히려 해가 됨. 최적 방법은 학습자 수준에 따라 달라짐 <em>(Kalyuga et al., 2007)</em></li>
-            <li><strong>순수 발견학습 실패</strong> — 50년간의 실증 데이터가 비가이드 발견학습을 지지하지 않음. Top-Down도 스캐폴딩이 있어야 작동 <em>(Mayer, 2004)</em></li>
-            <li><strong>나선형 커리큘럼</strong> — 같은 주제를 점점 깊이 있게 반복하는 하이브리드 접근이 가장 효과적 <em>(Bruner, 1960)</em></li>
+            <li data-i18n-html="sourceCogLoad"><strong>인지부하 이론</strong> — 초보자에게는 가이드된 예제가 자유 탐색보다 효과적. 비구조적 문제풀이는 작업 기억을 과부하시킴 <em>(Sweller, 1988)</em></li>
+            <li data-i18n-html="sourceExpertise"><strong>전문성 역전 효과</strong> — 초보자에게 좋은 교수법이 숙련자에게는 오히려 해가 됨. 최적 방법은 학습자 수준에 따라 달라짐 <em>(Kalyuga et al., 2007)</em></li>
+            <li data-i18n-html="sourceDiscovery"><strong>순수 발견학습 실패</strong> — 50년간의 실증 데이터가 비가이드 발견학습을 지지하지 않음. Top-Down도 스캐폴딩이 있어야 작동 <em>(Mayer, 2004)</em></li>
+            <li data-i18n-html="sourceSpiral"><strong>나선형 커리큘럼</strong> — 같은 주제를 점점 깊이 있게 반복하는 하이브리드 접근이 가장 효과적 <em>(Bruner, 1960)</em></li>
           </ul>
         </div>
       </details>
@@ -242,83 +255,83 @@
 <!-- CS COURSE MAPPING -->
 <section class="cs-map" id="cs-map">
   <div class="cs-map-inner">
-    <h2 class="cs-map-title">대학 전공 과목은 어디에?</h2>
-    <p class="cs-map-desc">컴퓨터 공학 전공 과목들이 이 커리큘럼의 어느 단계에서 다뤄지는지 한눈에 확인할 수 있습니다.</p>
+    <h2 class="cs-map-title" data-i18n="csMapTitle">대학 전공 과목은 어디에?</h2>
+    <p class="cs-map-desc" data-i18n="csMapDesc">컴퓨터 공학 전공 과목들이 이 커리큘럼의 어느 단계에서 다뤄지는지 한눈에 확인할 수 있습니다.</p>
     <div class="cs-map-grid">
 
       <a href="#s1" class="cs-map-card">
-        <div class="cs-map-stage">🛠 S1 일단 만든다</div>
+        <div class="cs-map-stage" data-i18n="csS1">🛠 S1 일단 만든다</div>
         <div class="cs-map-courses">
-          <span class="cs-course">프로그래밍 기초</span>
-          <span class="cs-course">소프트웨어 개발 입문</span>
+          <span class="cs-course" data-i18n="course_progBasic">프로그래밍 기초</span>
+          <span class="cs-course" data-i18n="course_swDev">소프트웨어 개발 입문</span>
         </div>
       </a>
 
       <a href="#s2" class="cs-map-card">
-        <div class="cs-map-stage">🐢 S2 왜 이렇게 느려?</div>
+        <div class="cs-map-stage" data-i18n="csS2">🐢 S2 왜 이렇게 느려?</div>
         <div class="cs-map-courses">
-          <span class="cs-course">자료구조</span>
-          <span class="cs-course">알고리즘</span>
+          <span class="cs-course" data-i18n="course_ds">자료구조</span>
+          <span class="cs-course" data-i18n="course_algo">알고리즘</span>
         </div>
       </a>
 
       <a href="#s3" class="cs-map-card">
-        <div class="cs-map-stage">🍝 S3 코드가 스파게티</div>
+        <div class="cs-map-stage" data-i18n="csS3">🍝 S3 코드가 스파게티</div>
         <div class="cs-map-courses">
-          <span class="cs-course">객체지향 프로그래밍</span>
-          <span class="cs-course">소프트웨어 공학</span>
-          <span class="cs-course">디자인 패턴</span>
+          <span class="cs-course" data-i18n="course_oop">객체지향 프로그래밍</span>
+          <span class="cs-course" data-i18n="course_swEng">소프트웨어 공학</span>
+          <span class="cs-course" data-i18n="course_design">디자인 패턴</span>
         </div>
       </a>
 
       <a href="#s4" class="cs-map-card">
-        <div class="cs-map-stage">💀 S4 앱이 죽는다</div>
+        <div class="cs-map-stage" data-i18n="csS4">💀 S4 앱이 죽는다</div>
         <div class="cs-map-courses">
-          <span class="cs-course">시스템 프로그래밍</span>
-          <span class="cs-course">프로그래밍 언어론</span>
+          <span class="cs-course" data-i18n="course_sysProg">시스템 프로그래밍</span>
+          <span class="cs-course" data-i18n="course_progLang">프로그래밍 언어론</span>
         </div>
       </a>
 
       <a href="#s5" class="cs-map-card">
-        <div class="cs-map-stage">🌐 S5 서버 데이터</div>
+        <div class="cs-map-stage" data-i18n="csS5">🌐 S5 서버 데이터</div>
         <div class="cs-map-courses">
-          <span class="cs-course">컴퓨터 네트워크</span>
-          <span class="cs-course">데이터베이스</span>
-          <span class="cs-course">정보보안</span>
+          <span class="cs-course" data-i18n="course_network">컴퓨터 네트워크</span>
+          <span class="cs-course" data-i18n="course_db">데이터베이스</span>
+          <span class="cs-course" data-i18n="course_security">정보보안</span>
         </div>
       </a>
 
       <a href="#s6" class="cs-map-card">
-        <div class="cs-map-stage">🧊 S6 UI가 멈춘다</div>
+        <div class="cs-map-stage" data-i18n="csS6">🧊 S6 UI가 멈춘다</div>
         <div class="cs-map-courses">
-          <span class="cs-course">운영체제 (동시성)</span>
-          <span class="cs-course">컴퓨터 그래픽스</span>
+          <span class="cs-course" data-i18n="course_osConcurrency">운영체제 (동시성)</span>
+          <span class="cs-course" data-i18n="course_graphics">컴퓨터 그래픽스</span>
         </div>
       </a>
 
       <a href="#s7" class="cs-map-card">
-        <div class="cs-map-stage">🧪 S7 코드가 맞는지</div>
+        <div class="cs-map-stage" data-i18n="csS7">🧪 S7 코드가 맞는지</div>
         <div class="cs-map-courses">
-          <span class="cs-course">소프트웨어 테스팅</span>
-          <span class="cs-course">소프트웨어 프로젝트 관리</span>
+          <span class="cs-course" data-i18n="course_testing">소프트웨어 테스팅</span>
+          <span class="cs-course" data-i18n="course_projMgmt">소프트웨어 프로젝트 관리</span>
         </div>
       </a>
 
       <a href="#s8" class="cs-map-card">
-        <div class="cs-map-stage">🔭 S8 더 깊이</div>
+        <div class="cs-map-stage" data-i18n="csS8">🔭 S8 더 깊이</div>
         <div class="cs-map-courses">
-          <span class="cs-course">컴퓨터 구조</span>
-          <span class="cs-course">운영체제</span>
-          <span class="cs-course">컴파일러</span>
+          <span class="cs-course" data-i18n="course_compArch">컴퓨터 구조</span>
+          <span class="cs-course" data-i18n="course_os">운영체제</span>
+          <span class="cs-course" data-i18n="course_compiler">컴파일러</span>
         </div>
       </a>
 
       <a href="#s9" class="cs-map-card">
-        <div class="cs-map-stage">🧮 S9 수학</div>
+        <div class="cs-map-stage" data-i18n="csS9">🧮 S9 수학</div>
         <div class="cs-map-courses">
-          <span class="cs-course">이산수학</span>
-          <span class="cs-course">선형대수</span>
-          <span class="cs-course">확률과 통계</span>
+          <span class="cs-course" data-i18n="course_discreteMath">이산수학</span>
+          <span class="cs-course" data-i18n="course_linearAlg">선형대수</span>
+          <span class="cs-course" data-i18n="course_probStat">확률과 통계</span>
         </div>
       </a>
 
@@ -331,7 +344,7 @@
   <div class="sticky-inner">
     <div class="search-box">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-      <input id="searchInput" type="text" placeholder="검색... (예: ARC, async, Codable)" autocomplete="off" spellcheck="false">
+      <input id="searchInput" type="text" data-i18n-attr="placeholder:searchPlaceholder" placeholder="검색... (예: ARC, async, Codable)" autocomplete="off" spellcheck="false">
       <span id="searchCount" class="search-count"></span>
     </div>
     <nav class="stage-nav" id="stageNav"></nav>
@@ -345,26 +358,31 @@
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-brand">
-      <span class="footer-logo">개발자리</span>
+      <span class="footer-logo" data-i18n="footerBrand">개발자리</span>
       <span class="footer-dot">·</span>
-      <span>Top-Down 컴퓨터 공학 Curriculum</span>
+      <span data-i18n="footerTagline">Top-Down 컴퓨터 공학 Curriculum</span>
     </div>
     <div class="footer-links">
       <a href="https://www.youtube.com/@개발자리" target="_blank" rel="noopener">YouTube</a>
       <a href="https://www.inflearn.com" target="_blank" rel="noopener">Inflearn</a>
       <a href="https://m1zz.github.io/LeeoNote" target="_blank" rel="noopener">Blog</a>
     </div>
-    <p class="footer-copy">© 2026 개발자리 · Leeo. All rights reserved.</p>
+    <p class="footer-copy" data-i18n="footerCopy">© 2026 개발자리 · Leeo. All rights reserved.</p>
   </div>
 </footer>
 
 <!-- THEME TOGGLE -->
+<button class="lang-toggle" id="langToggle" aria-label="Language">
+  <span class="lang-label">EN</span>
+</button>
 <button class="theme-toggle" id="themeToggle" aria-label="테마 전환">
   <span class="icon-moon">🌙</span>
   <span class="icon-sun">☀️</span>
 </button>
 
 <script src="assets/data.js"></script>
+<script src="assets/data-en.js"></script>
+<script src="assets/i18n.js"></script>
 <script src="assets/app.js"></script>
 </body>
 </html>
