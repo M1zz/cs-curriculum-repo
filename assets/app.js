@@ -71,6 +71,54 @@ STAGES.forEach(stage => {
           <p class="why-text">${esc(ch.why)}</p>
         </div>` : '';
 
+    let quizHTML = '';
+    if (ch.quiz) {
+      const q = ch.quiz;
+      const optionsHTML = q.options.map(opt => `
+            <button class="option-btn" data-choice="${esc(opt.key)}">
+              <span class="option-label">${esc(opt.label)}</span>
+              <div>
+                <div class="option-title">${esc(opt.title)}</div>
+                <div class="option-desc">${esc(opt.desc)}</div>
+              </div>
+            </button>`).join('');
+
+      const resultsHTML = Object.keys(q.answer).map(key => {
+        const a = q.answer[key];
+        const cardClass = a.correct ? 'right' : 'wrong';
+        const barClass = a.correct ? 'fast' : 'slow';
+        return `
+            <div class="result-card ${cardClass}">
+              <div class="result-tag">${a.tag}</div>
+              <div class="result-code"><code>${a.code}</code></div>
+              <div class="result-effect">
+                <div class="effect-bar">
+                  <span class="effect-label">${a.effectLabel}</span>
+                  <div class="bar-track">
+                    <div class="bar-fill ${barClass}" style="width:${a.effectWidth}"></div>
+                  </div>
+                  <span class="effect-value">${a.effectValue}</span>
+                </div>
+                <p class="result-body">${a.body}</p>
+              </div>
+            </div>`;
+      }).join('');
+
+      quizHTML = `
+        <div class="chapter-quiz">
+          <div class="scenario-header">
+            <span class="scenario-num">💡 실전 상황</span>
+            <h3 class="scenario-q">${q.q}</h3>
+          </div>
+          <div class="scenario-options" data-scenario="${esc(ch.id)}">
+            ${optionsHTML}
+          </div>
+          <div class="scenario-result" id="result-${esc(ch.id)}">
+            ${resultsHTML}
+          </div>
+        </div>`;
+    }
+
     chaptersHTML += `
       <div class="chapter" id="${ch.id}">
         <div class="chapter-header">
@@ -87,13 +135,18 @@ STAGES.forEach(stage => {
         <div class="chapter-body">
           <div class="chapter-inner">
             ${whyHTML}
+            ${quizHTML}
             <div class="topics">${topicsHTML}</div>
           </div>
         </div>
       </div>`;
   });
 
-  const linkHTML = stage.link ? `<a href="${stage.link}" target="_blank" rel="noopener" class="stage-link">강의 바로가기 →</a>` : '';
+  const linkHTML = stage.link ? `<a href="${stage.link}" target="_blank" rel="noopener" class="stage-link">학습하러 가기 →</a>` : '';
+  const bottomLinkHTML = stage.link ? `
+    <div class="stage-bottom-link">
+      <a href="${stage.link}" target="_blank" rel="noopener" class="stage-link">학습하러 가기 →</a>
+    </div>` : '';
 
   const gapHTML = stage.gap ? `
     <div class="growth-card gap-card">
@@ -127,13 +180,17 @@ STAGES.forEach(stage => {
     </div>
     <div class="growth-section">
       <div class="growth-card status-card">
-        <div class="growth-label">✅ 이 단계를 마친 너는</div>
+        <div class="growth-label">✅ 이 단계를 마친 당신은</div>
+        <div class="stage-progress">
+          ${STAGES.map((s, i) => `<div class="progress-step ${i < parseInt(stage.n) ? 'done' : ''} ${s.id === stage.id ? 'current' : ''}"><span class="progress-ico">${s.ico}</span><span class="progress-n">S${s.n}</span></div>`).join('')}
+        </div>
         <p class="growth-text">${esc(stage.status)}</p>
       </div>
       ${gapHTML}
       ${nextHTML}
     </div>
     <div class="chapters">${chaptersHTML}</div>
+    ${bottomLinkHTML}
   `;
 
   main.appendChild(section);
@@ -147,6 +204,19 @@ STAGES.forEach(stage => {
 
   /* Open first chapter by default */
   section.querySelector('.chapter')?.classList.add('open');
+
+  /* Quiz interaction handler */
+  section.querySelectorAll('.scenario-options').forEach(group => {
+    const scenario = group.dataset.scenario;
+    group.querySelectorAll('.option-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        group.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        const resultPanel = document.getElementById('result-' + scenario);
+        resultPanel.classList.add('visible');
+      });
+    });
+  });
 });
 
 /* ── INTERSECTION OBSERVER (stage nav + scroll reveal) ────── */
@@ -224,21 +294,6 @@ searchInput.addEventListener('input', () => {
   });
 
   searchCount.textContent = total ? `${total}개` : '없음';
-});
-
-/* ── DATA STRUCTURE QUIZ ──────────────────────────────────── */
-document.querySelectorAll('.scenario-options').forEach(group => {
-  const scenario = group.dataset.scenario;
-  group.querySelectorAll('.option-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      // Mark selected
-      group.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
-      btn.classList.add('selected');
-      // Show result
-      const resultPanel = document.getElementById('result-' + scenario);
-      resultPanel.classList.add('visible');
-    });
-  });
 });
 
 /* ── GRAPH COMPARISON TABS ────────────────────────────────── */

@@ -546,6 +546,70 @@ body::after {
 .next-card { border-left: 3px solid var(--s5); }
 .next-card .growth-label { color: var(--s5); }
 
+/* ── STAGE PROGRESS INDICATOR ──────────────────────────────── */
+.stage-progress {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.progress-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 4px 6px;
+  border-radius: 6px;
+  background: var(--surface2);
+  border: 1.5px solid var(--border);
+  opacity: .35;
+  transition: all .2s;
+  flex: 1;
+  min-width: 0;
+}
+
+.progress-step.done {
+  opacity: 1;
+  background: var(--s1bg);
+  border-color: var(--s1bd);
+}
+
+.progress-step.current {
+  opacity: 1;
+  border-color: var(--text);
+  background: var(--surface);
+  box-shadow: 0 0 0 2px var(--text);
+}
+
+.progress-ico {
+  font-size: 14px;
+  line-height: 1;
+}
+
+.progress-n {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: .05em;
+}
+
+.progress-step.done .progress-n { color: var(--s1); }
+.progress-step.current .progress-n { color: var(--text); font-weight: 700; }
+
+/* ── STAGE BOTTOM LINK ─────────────────────────────────────── */
+.stage-bottom-link {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  padding: 24px 0;
+}
+
+.stage-bottom-link .stage-link {
+  font-size: 15px;
+  padding: 12px 28px;
+}
+
 /* ── CHAPTERS ─────────────────────────────────────────────── */
 .chapters { display: flex; flex-direction: column; gap: 8px; }
 
@@ -969,6 +1033,83 @@ body::after {
   color: #4a5568;
 }
 [data-theme="dark"] .insight-body { color: #8b95a8; }
+
+/* ── GRAPH Y-AXIS LABEL ──────────────────────────────────── */
+.graph-y-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: .05em;
+}
+
+/* ── GRAPH SOURCES (details/summary) ─────────────────────── */
+.graph-sources {
+  margin-top: 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.sources-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 18px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted);
+  cursor: pointer;
+  background: var(--surface);
+  transition: background .15s, color .15s;
+  list-style: none;
+}
+.sources-toggle::-webkit-details-marker { display: none; }
+.sources-toggle::after {
+  content: '▸';
+  margin-left: auto;
+  font-size: 11px;
+  transition: transform .2s;
+}
+.graph-sources[open] .sources-toggle::after { transform: rotate(90deg); }
+.sources-toggle:hover { background: var(--surface2); color: var(--text); }
+
+.sources-body {
+  padding: 14px 20px 16px;
+  border-top: 1px solid var(--border);
+  background: var(--surface2);
+}
+
+.sources-body ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sources-body li {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--muted);
+  padding-left: 14px;
+  position: relative;
+}
+.sources-body li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  font-weight: 700;
+  color: var(--dim);
+}
+.sources-body li strong {
+  color: var(--text);
+  font-weight: 600;
+}
+.sources-body li em {
+  font-style: normal;
+  opacity: .7;
+  font-size: 12px;
+}
 
 /* ── DATA STRUCTURE QUIZ ─────────────────────────────────── */
 .quiz {

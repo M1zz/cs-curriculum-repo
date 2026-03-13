@@ -66,10 +66,11 @@
 
     <!-- Graph 1: Top-Down 강점 -->
     <div class="graph-panel active" id="graph-topdown">
-      <p class="graph-desc">실무에서 바로 써먹을 수 있는 능력은 Top-Down이 압도적으로 빠릅니다.</p>
+      <p class="graph-desc">실무 적용력 기준으로, Top-Down은 데드라인 안에 필요한 역량에 도달합니다.</p>
       <div class="graph-container">
         <div class="graph-y-axis">
           <span>높음</span>
+          <span class="graph-y-label">실무 적용력</span>
           <span>낮음</span>
         </div>
         <div class="graph-area">
@@ -78,10 +79,19 @@
             <line x1="0" y1="62.5" x2="500" y2="62.5" stroke="var(--border)" stroke-dasharray="4"/>
             <line x1="0" y1="125" x2="500" y2="125" stroke="var(--border)" stroke-dasharray="4"/>
             <line x1="0" y1="187.5" x2="500" y2="187.5" stroke="var(--border)" stroke-dasharray="4"/>
-            <!-- Bottom-Up: slow linear rise -->
+            <!-- Deadline: red horizontal line at required level -->
+            <line x1="0" y1="90" x2="500" y2="90" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="8,4" class="deadline-line"/>
+            <text x="500" y="84" text-anchor="end" fill="#ef4444" font-size="11" font-family="DM Mono, monospace" font-weight="500">요구되는 역량 수준</text>
+            <!-- Deadline: red vertical line at time limit -->
+            <line x1="250" y1="0" x2="250" y2="250" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="8,4" class="deadline-line"/>
+            <text x="254" y="16" fill="#ef4444" font-size="11" font-family="DM Mono, monospace" font-weight="500">데드라인</text>
+            <!-- Bottom-Up: slow linear rise — doesn't cross deadline in time -->
             <path d="M0,240 C80,235 160,210 240,175 S400,100 500,60" fill="none" stroke="var(--dim)" stroke-width="2.5" stroke-dasharray="6,4" class="graph-line"/>
-            <!-- Top-Down: fast early rise then steady -->
+            <!-- Top-Down: fast early rise — crosses deadline before time limit -->
             <path d="M0,240 C60,180 120,80 200,50 S350,25 500,15" fill="none" stroke="var(--s5)" stroke-width="3" class="graph-line"/>
+            <!-- Intersection markers -->
+            <circle cx="155" cy="72" r="5" fill="#ef4444" opacity=".8"/>
+            <circle cx="380" cy="105" r="5" fill="var(--dim)" opacity=".6"/>
           </svg>
           <div class="graph-x-axis">
             <span>시작</span>
@@ -99,6 +109,10 @@
         <div class="legend-item">
           <span class="legend-line dashed" style="background:var(--dim)"></span>
           <span><strong>Bottom-Up</strong> — 기초 이론부터 차근차근</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-line" style="background:#ef4444"></span>
+          <span><strong>데드라인</strong> — 나에게 주어진 시간과 요구 역량</span>
         </div>
       </div>
       <div class="graph-insights">
@@ -124,6 +138,16 @@
           </div>
         </div>
       </div>
+      <details class="graph-sources">
+        <summary class="sources-toggle">📎 근거 펼쳐보기</summary>
+        <div class="sources-body">
+          <ul>
+            <li><strong>PBL 메타분석</strong> — 66개 연구, 190개 효과값 분석. 프로젝트 기반 학습이 동기부여·만족도·협업 능력에서 유의미하게 높음 <em>(Frontiers in Psychology, 2023)</em></li>
+            <li><strong>fast.ai 사례</strong> — 1강부터 최신 모델을 돌리고, 점차 원리를 벗겨가는 Top-Down 방식. 가장 널리 쓰이는 딥러닝 코스 <em>(Jeremy Howard)</em></li>
+            <li><strong>PBL 최적 기간</strong> — 9~18주가 측정 가능한 학습 성과의 최적 구간 <em>(ScienceDirect, 2025 메타분석)</em></li>
+          </ul>
+        </div>
+      </details>
     </div>
 
     <!-- Graph 2: Bottom-Up 강점 -->
@@ -132,6 +156,7 @@
       <div class="graph-container">
         <div class="graph-y-axis">
           <span>높음</span>
+          <span class="graph-y-label">실무 적용력</span>
           <span>낮음</span>
         </div>
         <div class="graph-area">
@@ -140,6 +165,11 @@
             <line x1="0" y1="62.5" x2="500" y2="62.5" stroke="var(--border)" stroke-dasharray="4"/>
             <line x1="0" y1="125" x2="500" y2="125" stroke="var(--border)" stroke-dasharray="4"/>
             <line x1="0" y1="187.5" x2="500" y2="187.5" stroke="var(--border)" stroke-dasharray="4"/>
+            <!-- Deadline: same red lines for consistency -->
+            <line x1="0" y1="90" x2="500" y2="90" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="8,4" class="deadline-line"/>
+            <text x="500" y="84" text-anchor="end" fill="#ef4444" font-size="11" font-family="DM Mono, monospace" font-weight="500">요구되는 역량 수준</text>
+            <line x1="125" y1="0" x2="125" y2="250" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="8,4" class="deadline-line"/>
+            <text x="129" y="16" fill="#ef4444" font-size="11" font-family="DM Mono, monospace" font-weight="500">데드라인</text>
             <!-- Top-Down: fast rise, plateau, slight knowledge gaps -->
             <path d="M0,240 C60,180 120,90 200,65 S300,55 400,50 L500,45" fill="none" stroke="var(--s5)" stroke-width="2.5" stroke-dasharray="6,4" class="graph-line"/>
             <!-- Bottom-Up: slow but deep, eventually surpasses in depth -->
@@ -161,6 +191,10 @@
         <div class="legend-item">
           <span class="legend-line dashed" style="background:var(--s5)"></span>
           <span><strong>Top-Down</strong> — 실무 중심 학습</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-line" style="background:#ef4444"></span>
+          <span><strong>데드라인</strong> — 나에게 주어진 시간과 요구 역량</span>
         </div>
       </div>
       <div class="graph-insights">
@@ -186,138 +220,19 @@
           </div>
         </div>
       </div>
+      <details class="graph-sources">
+        <summary class="sources-toggle">📎 근거 펼쳐보기</summary>
+        <div class="sources-body">
+          <ul>
+            <li><strong>인지부하 이론</strong> — 초보자에게는 가이드된 예제가 자유 탐색보다 효과적. 비구조적 문제풀이는 작업 기억을 과부하시킴 <em>(Sweller, 1988)</em></li>
+            <li><strong>전문성 역전 효과</strong> — 초보자에게 좋은 교수법이 숙련자에게는 오히려 해가 됨. 최적 방법은 학습자 수준에 따라 달라짐 <em>(Kalyuga et al., 2007)</em></li>
+            <li><strong>순수 발견학습 실패</strong> — 50년간의 실증 데이터가 비가이드 발견학습을 지지하지 않음. Top-Down도 스캐폴딩이 있어야 작동 <em>(Mayer, 2004)</em></li>
+            <li><strong>나선형 커리큘럼</strong> — 같은 주제를 점점 깊이 있게 반복하는 하이브리드 접근이 가장 효과적 <em>(Bruner, 1960)</em></li>
+          </ul>
+        </div>
+      </details>
     </div>
 
-  </div>
-</section>
-
-<!-- DATA STRUCTURE QUIZ -->
-<section class="quiz" id="quiz">
-  <div class="quiz-inner">
-    <h2 class="quiz-title">이런 상황에서, 어떤 걸 선택하시겠습니까?</h2>
-    <p class="quiz-desc">앱을 만들다 보면 자연스럽게 마주치는 선택의 순간입니다.<br>자료구조를 몰라도 앱은 만들 수 있습니다. 하지만 <strong>잘못 고르면 앱이 멈춥니다.</strong></p>
-
-    <!-- Scenario 1 -->
-    <div class="quiz-scenario">
-      <div class="scenario-header">
-        <span class="scenario-num">상황 1</span>
-        <h3 class="scenario-q">연락처 앱에서 이름을 검색합니다. 연락처가 10,000개일 때, 어떻게 저장하시겠습니까?</h3>
-      </div>
-      <div class="scenario-options" data-scenario="1">
-        <button class="option-btn" data-choice="array">
-          <span class="option-label">A</span>
-          <div>
-            <div class="option-title">Array (배열)</div>
-            <div class="option-desc">순서대로 쭉 넣습니다</div>
-          </div>
-        </button>
-        <button class="option-btn" data-choice="dict">
-          <span class="option-label">B</span>
-          <div>
-            <div class="option-title">Dictionary (딕셔너리)</div>
-            <div class="option-desc">이름을 key로 저장합니다</div>
-          </div>
-        </button>
-      </div>
-      <div class="scenario-result" id="result-1">
-        <div class="result-card wrong" id="result-1-array">
-          <div class="result-tag">Array를 선택했다면</div>
-          <div class="result-code">
-            <code>// 10,000개를 처음부터 하나씩 비교<br>for contact in contacts {<br>&nbsp;&nbsp;if contact.name == "김민수" { ... }<br>}</code>
-          </div>
-          <div class="result-effect">
-            <div class="effect-bar">
-              <span class="effect-label">검색 시간</span>
-              <div class="bar-track">
-                <div class="bar-fill slow" style="width:85%"></div>
-              </div>
-              <span class="effect-value">최악 10,000번 비교</span>
-            </div>
-            <p class="result-body">사용자가 글자를 입력할 때마다 <strong>10,000개를 전부 훑습니다.</strong><br>타이핑할 때마다 버벅거리는 검색창 — 사용자는 앱을 삭제합니다.</p>
-          </div>
-        </div>
-        <div class="result-card right" id="result-1-dict">
-          <div class="result-tag">Dictionary를 선택했다면</div>
-          <div class="result-code">
-            <code>// key로 바로 접근 — 해시 함수 한 번<br>let result = contacts["김민수"]<br>// 끝.</code>
-          </div>
-          <div class="result-effect">
-            <div class="effect-bar">
-              <span class="effect-label">검색 시간</span>
-              <div class="bar-track">
-                <div class="bar-fill fast" style="width:8%"></div>
-              </div>
-              <span class="effect-value">평균 1번 (O(1))</span>
-            </div>
-            <p class="result-body">10,000개든 100만 개든 <strong>거의 즉시 찾습니다.</strong><br>이것이 해시 테이블의 힘이고, 이것을 알아야 하는 이유입니다.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Scenario 2 -->
-    <div class="quiz-scenario">
-      <div class="scenario-header">
-        <span class="scenario-num">상황 2</span>
-        <h3 class="scenario-q">쇼핑 앱에서 "최근 본 상품"에 같은 상품이 중복되면 안 됩니다. 무엇을 사용하시겠습니까?</h3>
-      </div>
-      <div class="scenario-options" data-scenario="2">
-        <button class="option-btn" data-choice="array">
-          <span class="option-label">A</span>
-          <div>
-            <div class="option-title">Array (배열)</div>
-            <div class="option-desc">넣기 전에 contains로 확인합니다</div>
-          </div>
-        </button>
-        <button class="option-btn" data-choice="set">
-          <span class="option-label">B</span>
-          <div>
-            <div class="option-title">Set (집합)</div>
-            <div class="option-desc">중복 자체가 불가능한 구조입니다</div>
-          </div>
-        </button>
-      </div>
-      <div class="scenario-result" id="result-2">
-        <div class="result-card wrong" id="result-2-array">
-          <div class="result-tag">Array를 선택했다면</div>
-          <div class="result-code">
-            <code>// 매번 전체를 순회해서 중복 확인<br>if !recentItems.contains(item) {<br>&nbsp;&nbsp;recentItems.append(item)<br>}</code>
-          </div>
-          <div class="result-effect">
-            <div class="effect-bar">
-              <span class="effect-label">중복 확인</span>
-              <div class="bar-track">
-                <div class="bar-fill slow" style="width:75%"></div>
-              </div>
-              <span class="effect-value">매번 전체 순회 O(n)</span>
-            </div>
-            <p class="result-body">상품을 볼 때마다 배열 전체를 탐색합니다. 100개면 100번, 1000개면 1000번입니다.<br><strong>스크롤할 때마다 느려지는 앱</strong>이 됩니다.</p>
-          </div>
-        </div>
-        <div class="result-card right" id="result-2-set">
-          <div class="result-tag">Set을 선택했다면</div>
-          <div class="result-code">
-            <code>// insert하면 중복은 자동으로 무시됨<br>recentItems.insert(item)<br>// 끝. 확인할 필요 없습니다.</code>
-          </div>
-          <div class="result-effect">
-            <div class="effect-bar">
-              <span class="effect-label">중복 확인</span>
-              <div class="bar-track">
-                <div class="bar-fill fast" style="width:8%"></div>
-              </div>
-              <span class="effect-value">자동 처리 O(1)</span>
-            </div>
-            <p class="result-body">Set은 수학의 집합과 같습니다. <strong>같은 원소가 들어갈 수 없는 구조</strong> 자체가 답입니다.<br>이런 선택이 앱의 성능을 결정합니다.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="quiz-conclusion">
-      <p>이것이 바로 <strong>자료구조를 배워야 하는 이유</strong>입니다.<br>
-      "어떤 걸 쓰든 동작은 합니다"가 아니라, <strong>"무엇을 고르느냐가 앱의 생사를 가릅니다."</strong><br>
-      그리고 이 커리큘럼은 바로 이 순간에 필요한 지식을 가르칩니다.</p>
-    </div>
   </div>
 </section>
 
