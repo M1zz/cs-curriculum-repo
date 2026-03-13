@@ -3,15 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="앱을 만들다 마주치는 문제를 해결하며 CS를 배우는 Top-Down 커리큘럼. 개발자리 Leeo의 iOS 개발자를 위한 컴퓨터 공학 로드맵.">
-<meta property="og:title" content="앱 개발자를 위한 CS 커리큘럼 — 개발자리">
-<meta property="og:description" content="문법책부터 시작하지 않는다. 앱을 만들고, 문제를 만나고, 그 해법으로 CS를 배운다.">
+<meta name="description" content="앱을 만들다 마주치는 문제를 해결하며 컴퓨터 공학을 배우는 Top-Down 커리큘럼. 개발자리 Leeo의 iOS 개발자를 위한 컴퓨터 공학 로드맵.">
+<meta property="og:title" content="앱 개발자를 위한 컴퓨터 공학 커리큘럼 — 개발자리">
+<meta property="og:description" content="문법책부터 시작하지 않는다. 앱을 만들고, 문제를 만나고, 그 해법으로 컴퓨터 공학을 배운다.">
 <meta property="og:type" content="website">
-<title>앱 개발자를 위한 CS 커리큘럼 — 개발자리</title>
+<title>앱 개발자를 위한 컴퓨터 공학 커리큘럼 — 개발자리</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;1,9..144,300&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
+<script>
+  // Prevent flash: apply saved theme before first paint
+  (function() {
+    var t = localStorage.getItem('theme');
+    if (t) document.documentElement.setAttribute('data-theme', t);
+  })();
+</script>
 </head>
 <body>
 
@@ -19,9 +26,9 @@
 <section class="hero" id="hero">
   <div class="hero-glow"></div>
   <div class="hero-content">
-    <p class="hero-label">개발자리 · Top-Down CS Curriculum</p>
-    <h1 class="hero-title">앱을 만들다<br><em>막힌 순간</em>이<br>교과서다</h1>
-    <p class="hero-sub">문법책부터 시작하지 않는다 — 앱을 만들고, 문제를 만나고,<br>그 해법으로 CS를 배운다</p>
+    <p class="hero-label">개발자리 · Top-Down 컴퓨터 공학 Curriculum</p>
+    <h1 class="hero-title">앱 개발자를 위한<br><em>컴퓨터 공학</em><br>지식</h1>
+    <p class="hero-sub">문법책부터 시작하지 않는다 — 앱을 만들고, 문제를 만나고,<br>그 해법으로 컴퓨터 공학을 배운다</p>
     <div class="hero-meta">
       <span class="meta-pill">8 STAGES</span>
       <span class="meta-pill">28 CHAPTERS</span>
@@ -63,7 +70,7 @@
     <div class="footer-brand">
       <span class="footer-logo">개발자리</span>
       <span class="footer-dot">·</span>
-      <span>Top-Down CS Curriculum</span>
+      <span>Top-Down 컴퓨터 공학 Curriculum</span>
     </div>
     <div class="footer-links">
       <a href="https://www.youtube.com/@개발자리" target="_blank" rel="noopener">YouTube</a>
@@ -73,6 +80,12 @@
     <p class="footer-copy">© 2026 개발자리 · Leeo. All rights reserved.</p>
   </div>
 </footer>
+
+<!-- THEME TOGGLE -->
+<button class="theme-toggle" id="themeToggle" aria-label="테마 전환">
+  <span class="icon-moon">🌙</span>
+  <span class="icon-sun">☀️</span>
+</button>
 
 <script src="assets/data.js"></script>
 <script src="assets/app.js"></script>

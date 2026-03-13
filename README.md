@@ -1,10 +1,12 @@
-# 앱 개발자를 위한 CS 커리큘럼
+# 앱 개발자를 위한 컴퓨터 공학 커리큘럼
 
-> 문법책부터 시작하지 않는다 — 앱을 만들고, 문제를 만나고, 그 해법으로 CS를 배운다
+> 문법책부터 시작하지 않는다 — 앱을 만들고, 문제를 만나고, 그 해법으로 컴퓨터 공학을 배운다
 
-**개발자리 Leeo**의 Top-Down CS 커리큘럼 사이트입니다.
+**개발자리 Leeo**의 Top-Down 컴퓨터 공학 커리큘럼 사이트입니다.
 
-🔗 **라이브 사이트**: https://m1zz.github.io/cs-curriculum-repo/
+🔗 **GitHub Pages 라이브 사이트**: https://m1zz.github.io/cs-curriculum-repo/
+
+> 이 사이트는 **GitHub Pages**로 호스팅됩니다. `main` 브랜치에 push하면 GitHub Actions를 통해 자동으로 배포됩니다.
 
 ---
 
@@ -24,7 +26,7 @@
 
 ## 커리큘럼 구조
 
-| Stage | 문제 상황 | 배우는 CS |
+| Stage | 문제 상황 | 배우는 컴퓨터 공학 |
 |-------|-----------|-----------|
 | 🛠 S1 | 화면에 뭔가를 띄우고 싶다 | SwiftUI, 상태 관리, Swift 기초 |
 | 🐢 S2 | 앱이 느리다 | 자료구조, 알고리즘, Big-O |
@@ -52,7 +54,7 @@ cd <repo-name>
 ```bash
 # 이 폴더의 파일을 모두 복사한 후
 git add .
-git commit -m "feat: iOS CS 커리큘럼 사이트 초기 배포"
+git commit -m "feat: iOS 컴퓨터 공학 커리큘럼 사이트 초기 배포"
 git push origin main
 ```
 
