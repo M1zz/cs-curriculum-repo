@@ -633,7 +633,7 @@ const STAGES = [
   },
   {
     id: 's9', n: '9', ico: '🧮', title: '"수학이 보이기 시작한다"',
-    color: 'var(--s9)', theme: 's9-theme',
+    color: 'var(--s9)', theme: 's9-theme', link: 'https://m1zz.github.io/dev-math/',
     problem: '알고리즘 증명, 그래픽스 변환, ML 원리를 이해하고 싶지만 수학적 기반이 부족합니다',
     solve: '이산수학, 선형대수, 확률과 통계 — 컴퓨터 과학을 관통하는 수학적 기초',
     analogy: '🚗 물리 법칙을 이해하는 엔지니어',

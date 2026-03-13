@@ -633,7 +633,7 @@ const STAGES_EN = [
   },
   {
     id: 's9', n: '9', ico: '🧮', title: 'Math Starts Making Sense',
-    color: 'var(--s9)', theme: 's9-theme',
+    color: 'var(--s9)', theme: 's9-theme', link: 'https://m1zz.github.io/dev-math/',
     problem: 'You want to understand algorithm proofs, graphics transformations, and ML principles, but your math foundation is lacking',
     solve: 'Discrete math, linear algebra, probability and statistics — the mathematical foundations that cut across computer science',
     analogy: '🚗 An engineer who understands the laws of physics',
