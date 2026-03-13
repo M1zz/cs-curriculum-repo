@@ -23,6 +23,7 @@ a { text-decoration: none; color: inherit; }
   --s6: #9333ea;  --s6bg: rgba(147,51,234,.06);  --s6bd: rgba(147,51,234,.18);
   --s7: #0d9488;  --s7bg: rgba(13,148,136,.06);  --s7bd: rgba(13,148,136,.18);
   --s8: #64748b;  --s8bg: rgba(100,116,139,.06); --s8bd: rgba(100,116,139,.18);
+  --s9: #b45309;  --s9bg: rgba(180,83,9,.06);   --s9bd: rgba(180,83,9,.18);
 
   --radius-sm: 8px;
   --radius-md: 12px;
@@ -49,6 +50,7 @@ a { text-decoration: none; color: inherit; }
   --s6: #a855f7;  --s6bg: rgba(168,85,247,.07);  --s6bd: rgba(168,85,247,.22);
   --s7: #14b8a6;  --s7bg: rgba(20,184,166,.07);  --s7bd: rgba(20,184,166,.22);
   --s8: #94a3b8;  --s8bg: rgba(148,163,184,.07); --s8bd: rgba(148,163,184,.22);
+  --s9: #d97706;  --s9bg: rgba(217,119,6,.07);  --s9bd: rgba(217,119,6,.22);
 }
 
 body {
@@ -807,6 +809,7 @@ body::after {
 .s6-theme .why-box { border-left: 2px solid var(--s6bd); }
 .s7-theme .why-box { border-left: 2px solid var(--s7bd); }
 .s8-theme .why-box { border-left: 2px solid var(--s8bd); }
+.s9-theme .why-box { border-left: 2px solid var(--s9bd); }
 
 .s1-theme .why-label { color: var(--s1); }
 .s2-theme .why-label { color: var(--s2); }
@@ -816,6 +819,7 @@ body::after {
 .s6-theme .why-label { color: var(--s6); }
 .s7-theme .why-label { color: var(--s7); }
 .s8-theme .why-label { color: var(--s8); }
+.s9-theme .why-label { color: var(--s9); }
 
 /* ── TOPICS TABLE ─────────────────────────────────────────── */
 .topics { display: flex; flex-direction: column; }
@@ -899,6 +903,9 @@ body::after {
 .s8-theme .stage-header { background: var(--s8bg); border-color: var(--s8bd); }
 .s8-theme .stage-tag, .s8-theme .stage-title { color: var(--s8); }
 
+.s9-theme .stage-header { background: var(--s9bg); border-color: var(--s9bd); }
+.s9-theme .stage-tag, .s9-theme .stage-title { color: var(--s9); }
+
 /* Meta boxes per theme */
 .s1-theme .meta-box.solve { background: var(--s1bg); border: 1px solid var(--s1bd); color: var(--s1); }
 .s2-theme .meta-box.solve { background: var(--s2bg); border: 1px solid var(--s2bd); color: var(--s2); }
@@ -908,6 +915,7 @@ body::after {
 .s6-theme .meta-box.solve { background: var(--s6bg); border: 1px solid var(--s6bd); color: var(--s6); }
 .s7-theme .meta-box.solve { background: var(--s7bg); border: 1px solid var(--s7bd); color: var(--s7); }
 .s8-theme .meta-box.solve { background: var(--s8bg); border: 1px solid var(--s8bd); color: var(--s8); }
+.s9-theme .meta-box.solve { background: var(--s9bg); border: 1px solid var(--s9bd); color: var(--s9); }
 
 .meta-box.problem { background: rgba(0,0,0,.03); border: 1px solid var(--border2); color: #4b5563; }
 [data-theme="dark"] .meta-box.problem { background: rgba(255,255,255,.04); color: #9ca3af; }

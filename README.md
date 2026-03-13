@@ -17,7 +17,7 @@
 ├── index.html              # 메인 페이지
 ├── assets/
 │   ├── style.css           # 스타일시트
-│   ├── data.js             # 커리큘럼 데이터 (8 Stages, 28 Chapters, 200+ Topics)
+│   ├── data.js             # 커리큘럼 데이터 (9 Stages, 28 Chapters, 200+ Topics)
 │   └── app.js              # UI 로직 (검색, 아코디언, 스크롤 등)
 └── .github/
     └── workflows/
@@ -35,7 +35,8 @@
 | 🌐 S5 | 서버 데이터가 필요합니다 | HTTP, URLSession, Codable, DB, 보안 |
 | 🧊 S6 | UI가 버벅이고 멈춥니다 | 동시성, 렌더링 최적화, Combine |
 | 🧪 S7 | 내 코드가 맞는지 모르겠습니다 | 테스팅, TDD, CI/CD, 수익화 |
-| 🔭 S8 | 더 깊이 알고 싶습니다 | 컴퓨터구조, OS, 컴파일러, 수학 |
+| 🔭 S8 | 더 깊이 알고 싶습니다 | 컴퓨터구조, OS, 컴파일러 |
+| 🧮 S9 | 수학이 보이기 시작합니다 | 이산수학, 선형대수, 확률과 통계 |
 
 ---
 
