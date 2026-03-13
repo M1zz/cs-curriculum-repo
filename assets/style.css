@@ -495,6 +495,49 @@ body::after {
   border-top: 1px solid var(--border);
 }
 
+/* ── WHY BOX ──────────────────────────────────────────────── */
+.why-box {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 14px 22px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(255,255,255,.02);
+}
+
+.why-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .12em;
+  white-space: nowrap;
+  flex-shrink: 0;
+  opacity: .55;
+}
+
+.why-text {
+  font-size: 13px;
+  line-height: 1.65;
+  color: #8b95a8;
+}
+
+.s1-theme .why-box { border-left: 2px solid var(--s1bd); }
+.s2-theme .why-box { border-left: 2px solid var(--s2bd); }
+.s3-theme .why-box { border-left: 2px solid var(--s3bd); }
+.s4-theme .why-box { border-left: 2px solid var(--s4bd); }
+.s5-theme .why-box { border-left: 2px solid var(--s5bd); }
+.s6-theme .why-box { border-left: 2px solid var(--s6bd); }
+.s7-theme .why-box { border-left: 2px solid var(--s7bd); }
+.s8-theme .why-box { border-left: 2px solid var(--s8bd); }
+
+.s1-theme .why-label { color: var(--s1); }
+.s2-theme .why-label { color: var(--s2); }
+.s3-theme .why-label { color: var(--s3); }
+.s4-theme .why-label { color: var(--s4); }
+.s5-theme .why-label { color: var(--s5); }
+.s6-theme .why-label { color: var(--s6); }
+.s7-theme .why-label { color: var(--s7); }
+.s8-theme .why-label { color: var(--s8); }
+
 /* ── TOPICS TABLE ─────────────────────────────────────────── */
 .topics { display: flex; flex-direction: column; }
 

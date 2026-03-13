@@ -65,6 +65,12 @@ STAGES.forEach(stage => {
         </div>`;
     });
 
+    const whyHTML = ch.why ? `
+        <div class="why-box">
+          <span class="why-label">💡 왜 여기서?</span>
+          <p class="why-text">${esc(ch.why)}</p>
+        </div>` : '';
+
     chaptersHTML += `
       <div class="chapter" id="${ch.id}">
         <div class="chapter-header">
@@ -80,6 +86,7 @@ STAGES.forEach(stage => {
         </div>
         <div class="chapter-body">
           <div class="chapter-inner">
+            ${whyHTML}
             <div class="topics">${topicsHTML}</div>
           </div>
         </div>
