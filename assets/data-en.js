@@ -481,7 +481,7 @@ const STAGES_EN = [
   },
   {
     id: 's7', n: '7', ico: '🧪', title: 'Is My Code Even Correct?',
-    color: 'var(--s7)', theme: 's7-theme',
+    color: 'var(--s7)', theme: 's7-theme', link: 'https://m1zz.github.io/ios-distribution',
     problem: 'Bugs found after deployment / fear of breaking things with every change / deployment is tedious',
     solve: 'Testing, TDD, CI/CD, crash analysis, app monetization and operations',
     analogy: '🚗 A car with insurance and a mechanic',

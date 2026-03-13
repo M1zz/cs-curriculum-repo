@@ -481,7 +481,7 @@ const STAGES = [
   },
   {
     id: 's7', n: '7', ico: '🧪', title: '"내 코드가 맞는지 모르겠다"',
-    color: 'var(--s7)', theme: 's7-theme',
+    color: 'var(--s7)', theme: 's7-theme', link: 'https://m1zz.github.io/ios-distribution',
     problem: '배포 후 버그 발견 / 수정할 때마다 다른 곳이 깨질까 두렵습니다 / 배포가 귀찮습니다',
     solve: '테스팅, TDD, CI/CD, 크래시 분석, 앱 수익화와 운영',
     analogy: '🚗 보험과 정비소가 있는 자동차',
