@@ -253,7 +253,7 @@ const STAGES = [
   },
   {
     id: 's4', n: '4', ico: '💀', title: '"앱이 죽는다"',
-    color: 'var(--s4)', theme: 's4-theme',
+    color: 'var(--s4)', theme: 's4-theme', link: 'https://m1zz.github.io/ios-concept-lab/',
     problem: 'EXC_BAD_ACCESS 크래시 / 메모리 경고 후 강제 종료 / deinit이 불리지 않습니다',
     solve: 'ARC 원리, 순환 참조, weak/unowned, Instruments, 에러 처리',
     analogy: '🚲 정비할 줄 아는 자전거',
