@@ -557,7 +557,7 @@ const STAGES_EN = [
   },
   {
     id: 's8', n: '8', ico: '🔭', title: 'Going Deeper',
-    color: 'var(--s8)', theme: 's8-theme',
+    color: 'var(--s8)', theme: 's8-theme', link: 'https://m1zz.github.io/ios-operation',
     problem: 'You\'re curious about the fundamental principles of why things work this way / you want to grow into a senior developer',
     solve: 'Computer architecture, OS internals, compilers, mathematical foundations, language theory',
     analogy: '🚗 A driver who understands the engine',

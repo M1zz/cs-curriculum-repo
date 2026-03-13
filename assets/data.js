@@ -557,7 +557,7 @@ const STAGES = [
   },
   {
     id: 's8', n: '8', ico: '🔭', title: '"더 깊이 알고 싶다"',
-    color: 'var(--s8)', theme: 's8-theme',
+    color: 'var(--s8)', theme: 's8-theme', link: 'https://m1zz.github.io/ios-operation',
     problem: '왜 이렇게 동작하는지 근본 원리가 궁금합니다 / 시니어로 성장하고 싶습니다',
     solve: '컴퓨터 구조, OS 원리, 컴파일러, 수학적 기초, 언어 이론',
     analogy: '🚗 엔진을 이해하는 드라이버',
