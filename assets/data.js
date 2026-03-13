@@ -179,6 +179,7 @@ const STAGES = [
     color: 'var(--s3)', theme: 's3-theme',
     problem: '기능이 늘자 파일이 1000줄 / 수정하면 다른 곳이 깨집니다 / 재사용이 안 됩니다',
     solve: 'OOP, SOLID, 프로토콜, 디자인 패턴, 아키텍처, 모듈화',
+    link: 'https://m1zz.github.io/iOSArchLab/',
     analogy: '🚲 자전거',
     status: '코드를 책임 단위로 나눌 수 있습니다. MVVM으로 구조를 잡고, 프로토콜로 의존성을 분리합니다. 수정해도 다른 곳이 안 깨지는 코드를 짭니다. 팀 프로젝트에서 PR 리뷰를 줄 수 있는 수준입니다.',
     gap: '앱이 크래시가 나는데 원인을 모릅니다. deinit이 안 불리고, 메모리가 계속 늘어갑니다. 구조는 좋은데 앱이 죽습니다.',
