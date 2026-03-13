@@ -71,54 +71,6 @@ STAGES.forEach(stage => {
           <p class="why-text">${esc(ch.why)}</p>
         </div>` : '';
 
-    let quizHTML = '';
-    if (ch.quiz) {
-      const q = ch.quiz;
-      const optionsHTML = q.options.map(opt => `
-            <button class="option-btn" data-choice="${esc(opt.key)}">
-              <span class="option-label">${esc(opt.label)}</span>
-              <div>
-                <div class="option-title">${esc(opt.title)}</div>
-                <div class="option-desc">${esc(opt.desc)}</div>
-              </div>
-            </button>`).join('');
-
-      const resultsHTML = Object.keys(q.answer).map(key => {
-        const a = q.answer[key];
-        const cardClass = a.correct ? 'right' : 'wrong';
-        const barClass = a.correct ? 'fast' : 'slow';
-        return `
-            <div class="result-card ${cardClass}">
-              <div class="result-tag">${a.tag}</div>
-              <div class="result-code"><code>${a.code}</code></div>
-              <div class="result-effect">
-                <div class="effect-bar">
-                  <span class="effect-label">${a.effectLabel}</span>
-                  <div class="bar-track">
-                    <div class="bar-fill ${barClass}" style="width:${a.effectWidth}"></div>
-                  </div>
-                  <span class="effect-value">${a.effectValue}</span>
-                </div>
-                <p class="result-body">${a.body}</p>
-              </div>
-            </div>`;
-      }).join('');
-
-      quizHTML = `
-        <div class="chapter-quiz">
-          <div class="scenario-header">
-            <span class="scenario-num">💡 실전 상황</span>
-            <h3 class="scenario-q">${q.q}</h3>
-          </div>
-          <div class="scenario-options" data-scenario="${esc(ch.id)}">
-            ${optionsHTML}
-          </div>
-          <div class="scenario-result" id="result-${esc(ch.id)}">
-            ${resultsHTML}
-          </div>
-        </div>`;
-    }
-
     chaptersHTML += `
       <div class="chapter" id="${ch.id}">
         <div class="chapter-header">
@@ -135,7 +87,6 @@ STAGES.forEach(stage => {
         <div class="chapter-body">
           <div class="chapter-inner">
             ${whyHTML}
-            ${quizHTML}
             <div class="topics">${topicsHTML}</div>
           </div>
         </div>
@@ -147,6 +98,75 @@ STAGES.forEach(stage => {
     <div class="stage-bottom-link">
       <a href="${stage.link}" target="_blank" rel="noopener" class="stage-link">학습하러 가기 →</a>
     </div>` : '';
+
+  /* Build stage quiz section */
+  let stageQuizHTML = '';
+  const quizChapters = stage.chapters.filter(ch => ch.quiz);
+  if (quizChapters.length > 0) {
+    const quizItems = quizChapters.map(ch => {
+      const q = ch.quiz;
+      const optionsHTML = q.options.map(opt => `
+        <button class="option-btn" data-choice="${esc(opt.key)}">
+          <span class="option-label">${esc(opt.label)}</span>
+          <div>
+            <div class="option-title">${esc(opt.title)}</div>
+            <div class="option-desc">${esc(opt.desc)}</div>
+          </div>
+        </button>`).join('');
+
+      const resultsHTML = Object.keys(q.answer).map(key => {
+        const a = q.answer[key];
+        const cardClass = a.correct ? 'right' : 'wrong';
+        const barClass = a.correct ? 'fast' : 'slow';
+        const feedbackHTML = a.correct
+          ? ''
+          : `<a href="#${ch.id}" class="quiz-chapter-link">📖 ${ch.id} ${esc(ch.title)}에 대해 더 학습이 필요합니다. 학습하러 가시겠습니까?</a>`;
+        return `
+          <div class="result-card ${cardClass}">
+            <div class="result-tag">${a.tag}</div>
+            <div class="result-code"><code>${a.code}</code></div>
+            <div class="result-effect">
+              <div class="effect-bar">
+                <span class="effect-label">${a.effectLabel}</span>
+                <div class="bar-track">
+                  <div class="bar-fill ${barClass}" style="width:${a.effectWidth}"></div>
+                </div>
+                <span class="effect-value">${a.effectValue}</span>
+              </div>
+              <p class="result-body">${a.body}</p>
+              ${feedbackHTML}
+            </div>
+          </div>`;
+      }).join('');
+
+      return `
+        <div class="stage-quiz-item">
+          <div class="quiz-chapter-ref">${ch.ico} ${esc(ch.id)} ${esc(ch.title)}</div>
+          <div class="scenario-header">
+            <span class="scenario-num">💡 실전 상황</span>
+            <h3 class="scenario-q">${q.q}</h3>
+          </div>
+          <div class="scenario-options" data-scenario="${esc(ch.id)}">
+            ${optionsHTML}
+          </div>
+          <div class="scenario-result" id="result-${esc(ch.id)}">
+            ${resultsHTML}
+          </div>
+        </div>`;
+    }).join('');
+
+    stageQuizHTML = `
+      <div class="stage-quiz-section">
+        <div class="stage-quiz-header">
+          <span class="stage-quiz-ico">🧪</span>
+          <div>
+            <div class="stage-quiz-title">STAGE ${stage.n} 실전 퀴즈</div>
+            <div class="stage-quiz-desc">위 내용을 이해했는지 확인해 보세요.</div>
+          </div>
+        </div>
+        ${quizItems}
+      </div>`;
+  }
 
   const gapHTML = stage.gap ? `
     <div class="growth-card gap-card">
@@ -190,6 +210,7 @@ STAGES.forEach(stage => {
       ${nextHTML}
     </div>
     <div class="chapters">${chaptersHTML}</div>
+    ${stageQuizHTML}
     ${bottomLinkHTML}
   `;
 
