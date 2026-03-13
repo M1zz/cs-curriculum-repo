@@ -4,7 +4,7 @@
 
 **개발자리 Leeo**의 Top-Down CS 커리큘럼 사이트입니다.
 
-🔗 **라이브 사이트**: `https://<your-github-username>.github.io/<repo-name>/`
+🔗 **라이브 사이트**: https://m1zz.github.io/cs-curriculum-repo/
 
 ---
 
