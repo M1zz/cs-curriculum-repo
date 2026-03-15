@@ -397,19 +397,3 @@ themeToggle.addEventListener('click', () => {
   applyTheme(current === 'dark' ? 'light' : 'dark');
 });
 
-/* ── LANGUAGE TOGGLE ─────────────────────────────────────── */
-const langToggle = document.getElementById('langToggle');
-const langLabel = langToggle.querySelector('.lang-label');
-
-function updateLangButton() {
-  langLabel.textContent = currentLang === 'ko' ? 'EN' : 'KO';
-}
-updateLangButton();
-
-langToggle.addEventListener('click', () => {
-  currentLang = currentLang === 'ko' ? 'en' : 'ko';
-  localStorage.setItem('lang', currentLang);
-  updateLangButton();
-  renderAll(getStages());
-  applyI18n();
-});

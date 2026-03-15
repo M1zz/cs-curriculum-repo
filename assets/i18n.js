@@ -257,8 +257,8 @@ const UI = {
   }
 };
 
-// Current language
-let currentLang = localStorage.getItem('lang') || 'ko';
+// Detect language from URL path (/en/ → English, else Korean)
+let currentLang = /\/en(\/|$)/.test(window.location.pathname) ? 'en' : 'ko';
 
 function t(key) {
   return UI[currentLang]?.[key] || UI['ko'][key] || key;

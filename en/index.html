@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" data-i18n-attr="content:metaDesc" content="A Top-Down curriculum to learn computer science by solving problems you encounter while building apps. CS roadmap for iOS developers by Leeo.">
+<meta property="og:title" data-i18n-attr="content:ogTitle" content="CS Curriculum for App Developers — Leeo">
+<meta property="og:description" data-i18n-attr="content:ogDesc" content="In a fast-changing world, building from scratch is too slow. Build first, hit walls, then dig deep into the knowledge you need — a Top-Down approach for survival.">
+<meta property="og:type" content="website">
+<title data-i18n="pageTitle">CS Curriculum for App Developers — Leeo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;1,9..144,300&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  // Prevent flash: apply saved theme before first paint
+  (function() {
+    var t = localStorage.getItem('theme');
+    if (t) document.documentElement.setAttribute('data-theme', t);
+  })();
+</script>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <p class="hero-label" data-i18n="heroLabel">Leeo · Top-Down CS Curriculum</p>
+    <h1 class="hero-title" data-i18n-html="heroTitle">Computer Science<br>for <em>App Developers</em></h1>
+    <p class="hero-sub" data-i18n-html="heroSub">In a fast-changing world, building from scratch is too slow.<br>Build first, hit walls, then dig deep into the knowledge you need —<br>a Top-Down approach for survival.</p>
+    <div class="hero-meta">
+      <span class="meta-pill">9 STAGES</span>
+      <span class="meta-pill">28 CHAPTERS</span>
+      <span class="meta-pill">200+ TOPICS</span>
+      <span class="meta-pill">TOP-DOWN</span>
+    </div>
+    <div class="hero-req">
+      <span class="req-icon">💻</span>
+      <span class="req-text" data-i18n-html="heroReq">All you need to start is a <strong>Mac</strong> and <strong>Xcode</strong>.</span>
+    </div>
+    <div class="hero-actions">
+      <a href="#s1" class="btn-primary" data-i18n="btnCurriculum">View Curriculum</a>
+      <a href="#cs-map" class="btn-ghost" data-i18n="btnCsMap">View CS Course Mapping →</a>
+    </div>
+  </div>
+  <div class="hero-flow">
+    <div class="flow-cards" id="heroFlow"></div>
+  </div>
+  <div class="hero-scroll">
+    <span class="scroll-text">SCROLL</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- GRAPH COMPARISON -->
+<section class="compare" id="compare">
+  <div class="compare-inner">
+    <div class="compare-header">
+      <h2 class="compare-title" data-i18n="graphTitle">Why Top-Down?</h2>
+      <div class="compare-tabs">
+        <button class="compare-tab active" data-graph="topdown" data-i18n="tabTopDown">Strengths of Top-Down</button>
+        <button class="compare-tab" data-graph="bottomup" data-i18n="tabBottomUp">Strengths of Bottom-Up</button>
+      </div>
+    </div>
+
+    <!-- Graph 1: Top-Down 강점 -->
+    <div class="graph-panel active" id="graph-topdown">
+      <p class="graph-desc" data-i18n="graphDescTD">In terms of practical applicability, Top-Down reaches the required competency within the given time.</p>
+      <div class="graph-container">
+        <div class="graph-y-axis">
+          <span data-i18n="yHigh">High</span>
+          <span class="graph-y-label" data-i18n="yLabel">Practical Applicability</span>
+          <span data-i18n="yLow">Low</span>
+        </div>
+        <div class="graph-area">
+          <div class="graph-wrap">
+            <svg class="graph-svg" viewBox="0 0 500 250">
+              <!-- Grid lines -->
+              <line x1="0" y1="62.5" x2="500" y2="62.5" stroke="var(--border)" stroke-dasharray="4" vector-effect="non-scaling-stroke"/>
+              <line x1="0" y1="125" x2="500" y2="125" stroke="var(--border)" stroke-dasharray="4" vector-effect="non-scaling-stroke"/>
+              <line x1="0" y1="187.5" x2="500" y2="187.5" stroke="var(--border)" stroke-dasharray="4" vector-effect="non-scaling-stroke"/>
+              <!-- Deadline lines -->
+              <line x1="0" y1="90" x2="500" y2="90" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="8,4" vector-effect="non-scaling-stroke"/>
+              <line x1="250" y1="0" x2="250" y2="250" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="8,4" vector-effect="non-scaling-stroke"/>
+              <!-- Bottom-Up: slow linear rise -->
+              <path d="M0,240 C80,235 160,210 240,175 S400,100 500,60" fill="none" stroke="var(--dim)" stroke-width="2.5" stroke-dasharray="6,4" vector-effect="non-scaling-stroke" class="graph-line"/>
+              <!-- Top-Down: fast early rise -->
+              <path d="M0,240 C60,180 120,80 200,50 S350,25 500,15" fill="none" stroke="var(--s5)" stroke-width="3" vector-effect="non-scaling-stroke" class="graph-line"/>
+              <!-- Intersection: Top-Down ✕ horizontal deadline -->
+              <circle cx="130" cy="90" r="5" fill="#ef4444" stroke="#fff" stroke-width="1.5"/>
+              <!-- Intersection: Bottom-Up ✕ horizontal deadline -->
+              <circle cx="415" cy="90" r="5" fill="var(--dim)" stroke="#fff" stroke-width="1.5"/>
+              <!-- Intersection: Top-Down ✕ vertical deadline -->
+              <circle cx="250" cy="38" r="4" fill="var(--s5)" stroke="#fff" stroke-width="1.5"/>
+              <!-- Intersection: Bottom-Up ✕ vertical deadline -->
+              <circle cx="250" cy="168" r="4" fill="var(--dim)" stroke="#fff" stroke-width="1.5"/>
+            </svg>
+            <span class="deadline-label deadline-h" style="top:28%;right:4px;" data-i18n="deadlineH">Required Competency Level</span>
+            <span class="deadline-label deadline-v" style="left:50%;bottom:-22px;" data-i18n="deadlineV">Time Left</span>
+          </div>
+          <div class="graph-x-axis">
+            <span data-i18n="xStart">Start</span>
+            <span data-i18n="x6mo">6 months</span>
+            <span data-i18n="x1yr">1 year</span>
+            <span data-i18n="x2yr">2 years</span>
+          </div>
+        </div>
+      </div>
+      <div class="graph-legend">
+        <div class="legend-item">
+          <span class="legend-line" style="background:var(--s5)"></span>
+          <span data-i18n-html="legendTD"><strong>Top-Down</strong> — Learn what you need by building apps</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-line dashed" style="background:var(--dim)"></span>
+          <span data-i18n-html="legendBU_td"><strong>Bottom-Up</strong> — Study theory fundamentals first</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-line" style="background:#ef4444"></span>
+          <span data-i18n-html="legendDeadline"><strong>Time Left</strong> — Your available time and required competency</span>
+        </div>
+      </div>
+      <div class="graph-insights">
+        <div class="insight-card">
+          <span class="insight-ico">🚀</span>
+          <div>
+            <div class="insight-title" data-i18n="insightAppTitle">When you can build an app</div>
+            <div class="insight-body" data-i18n-html="insightAppBody">Top-Down builds a working app from the first month.<br>Bottom-Up is still studying data structures.</div>
+          </div>
+        </div>
+        <div class="insight-card">
+          <span class="insight-ico">🔧</span>
+          <div>
+            <div class="insight-title" data-i18n="insightDebugTitle">Problem-solving ability</div>
+            <div class="insight-body" data-i18n-html="insightDebugBody">Those who've fixed real bugs know debugging.<br>Textbook examples alone don't build practical intuition.</div>
+          </div>
+        </div>
+        <div class="insight-card">
+          <span class="insight-ico">💰</span>
+          <div>
+            <div class="insight-title" data-i18n="insightSurvivalTitle">Survival and revenue</div>
+            <div class="insight-body" data-i18n-html="insightSurvivalBody">In an era where you must ship fast to survive,<br>quick execution creates opportunities over perfect preparation.</div>
+          </div>
+        </div>
+      </div>
+      <details class="graph-sources">
+        <summary class="sources-toggle" data-i18n="sourcesToggle">📎 Show references</summary>
+        <div class="sources-body">
+          <ul>
+            <li data-i18n-html="sourcePBL"><strong>PBL Meta-analysis</strong> — 66 studies, 190 effect sizes. PBL significantly higher in motivation, satisfaction, and collaboration <em>(Frontiers in Psychology, 2023)</em></li>
+            <li data-i18n-html="sourceFastAI"><strong>fast.ai Case</strong> — Run state-of-the-art models from lesson 1, then peel back the principles. The most popular deep learning course <em>(Jeremy Howard)</em></li>
+            <li data-i18n-html="sourcePBLDuration"><strong>Optimal PBL Duration</strong> — 9–18 weeks is the optimal period for measurable learning outcomes <em>(ScienceDirect, 2025 meta-analysis)</em></li>
+          </ul>
+        </div>
+      </details>
+    </div>
+
+    <!-- Graph 2: Bottom-Up 강점 -->
+    <div class="graph-panel" id="graph-bottomup">
+      <p class="graph-desc" data-i18n="graphDescBU">But the university curriculum order clearly has its advantages too.</p>
+      <div class="graph-container">
+        <div class="graph-y-axis">
+          <span data-i18n="yHigh">High</span>
+          <span class="graph-y-label" data-i18n="yLabel">Practical Applicability</span>
+          <span data-i18n="yLow">Low</span>
+        </div>
+        <div class="graph-area">
+          <div class="graph-wrap">
+            <svg class="graph-svg" viewBox="0 0 500 250">
+              <!-- Grid lines -->
+              <line x1="0" y1="62.5" x2="500" y2="62.5" stroke="var(--border)" stroke-dasharray="4" vector-effect="non-scaling-stroke"/>
+              <line x1="0" y1="125" x2="500" y2="125" stroke="var(--border)" stroke-dasharray="4" vector-effect="non-scaling-stroke"/>
+              <line x1="0" y1="187.5" x2="500" y2="187.5" stroke="var(--border)" stroke-dasharray="4" vector-effect="non-scaling-stroke"/>
+              <!-- Deadline lines -->
+              <line x1="0" y1="90" x2="500" y2="90" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="8,4" vector-effect="non-scaling-stroke"/>
+              <line x1="125" y1="0" x2="125" y2="250" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="8,4" vector-effect="non-scaling-stroke"/>
+              <!-- Top-Down: fast rise, plateau -->
+              <path d="M0,240 C60,180 120,90 200,65 S300,55 400,50 L500,45" fill="none" stroke="var(--s5)" stroke-width="2.5" stroke-dasharray="6,4" vector-effect="non-scaling-stroke" class="graph-line"/>
+              <!-- Bottom-Up: slow but deep -->
+              <path d="M0,240 C100,230 180,200 250,150 S380,50 500,15" fill="none" stroke="var(--s1)" stroke-width="3" vector-effect="non-scaling-stroke" class="graph-line"/>
+              <!-- Intersection: Top-Down ✕ horizontal deadline -->
+              <circle cx="122" cy="90" r="5" fill="var(--s5)" stroke="#fff" stroke-width="1.5"/>
+              <!-- Intersection: Bottom-Up ✕ horizontal deadline -->
+              <circle cx="330" cy="90" r="5" fill="var(--s1)" stroke="#fff" stroke-width="1.5"/>
+              <!-- Intersection: Top-Down ✕ vertical deadline -->
+              <circle cx="125" cy="88" r="4" fill="#ef4444" stroke="#fff" stroke-width="1.5"/>
+              <!-- Intersection: Bottom-Up ✕ vertical deadline -->
+              <circle cx="125" cy="225" r="4" fill="var(--dim)" stroke="#fff" stroke-width="1.5"/>
+            </svg>
+            <span class="deadline-label deadline-h" style="top:28%;right:4px;" data-i18n="deadlineH">Required Competency Level</span>
+            <span class="deadline-label deadline-v" style="left:25%;bottom:-22px;" data-i18n="deadlineV">Time Left</span>
+          </div>
+          <div class="graph-x-axis">
+            <span data-i18n="xStart">Start</span>
+            <span data-i18n="x1yr">1 year</span>
+            <span data-i18n="x2yr">2 years</span>
+            <span data-i18n="x4yr">4 years+</span>
+          </div>
+        </div>
+      </div>
+      <div class="graph-legend">
+        <div class="legend-item">
+          <span class="legend-line" style="background:var(--s1)"></span>
+          <span data-i18n-html="legendBU"><strong>Bottom-Up</strong> — University curriculum order</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-line dashed" style="background:var(--s5)"></span>
+          <span data-i18n-html="legendTD_bu"><strong>Top-Down</strong> — Practice-oriented learning</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-line" style="background:#ef4444"></span>
+          <span data-i18n-html="legendDeadline"><strong>Time Left</strong> — Your available time and required competency</span>
+        </div>
+      </div>
+      <div class="graph-insights">
+        <div class="insight-card">
+          <span class="insight-ico">🧱</span>
+          <div>
+            <div class="insight-title" data-i18n="insightFoundationTitle">Solid Foundations</div>
+            <div class="insight-body" data-i18n-html="insightFoundationBody">Systematically building OS, architecture, and algorithms<br>lets you see through the essence of any technology.</div>
+          </div>
+        </div>
+        <div class="insight-card">
+          <span class="insight-ico">🔬</span>
+          <div>
+            <div class="insight-title" data-i18n="insightDeepTitle">Deep Understanding</div>
+            <div class="insight-body" data-i18n-html="insightDeepBody">Top-Down fills in the "why" later,<br>but Bottom-Up understands principles from the start.</div>
+          </div>
+        </div>
+        <div class="insight-card">
+          <span class="insight-ico">🎯</span>
+          <div>
+            <div class="insight-title" data-i18n="insightHybridTitle">So this curriculum</div>
+            <div class="insight-body" data-i18n-html="insightHybridBody">Starts fast with Top-Down,<br>but covers necessary fundamentals <strong>in depth</strong> at each stage.</div>
+          </div>
+        </div>
+      </div>
+      <details class="graph-sources">
+        <summary class="sources-toggle" data-i18n="sourcesToggle">📎 Show references</summary>
+        <div class="sources-body">
+          <ul>
+            <li data-i18n-html="sourceCogLoad"><strong>Cognitive Load Theory</strong> — For beginners, guided examples are more effective than free exploration. Unstructured problem-solving overloads working memory <em>(Sweller, 1988)</em></li>
+            <li data-i18n-html="sourceExpertise"><strong>Expertise Reversal Effect</strong> — Teaching methods good for beginners can hinder experts. Optimal approach varies by learner level <em>(Kalyuga et al., 2007)</em></li>
+            <li data-i18n-html="sourceDiscovery"><strong>Pure Discovery Learning Failure</strong> — 50 years of empirical data don't support unguided discovery learning. Top-Down needs scaffolding to work <em>(Mayer, 2004)</em></li>
+            <li data-i18n-html="sourceSpiral"><strong>Spiral Curriculum</strong> — A hybrid approach of revisiting topics with increasing depth is most effective <em>(Bruner, 1960)</em></li>
+          </ul>
+        </div>
+      </details>
+    </div>
+
+  </div>
+</section>
+
+<!-- CS COURSE MAPPING -->
+<section class="cs-map" id="cs-map">
+  <div class="cs-map-inner">
+    <h2 class="cs-map-title" data-i18n="csMapTitle">Where are the CS courses?</h2>
+    <p class="cs-map-desc" data-i18n="csMapDesc">See at a glance which stage of this curriculum covers each CS major course.</p>
+    <div class="cs-map-grid">
+
+      <a href="#s1" class="cs-map-card">
+        <div class="cs-map-stage" data-i18n="csS1">🛠 S1 Just Build It</div>
+        <div class="cs-map-courses">
+          <span class="cs-course" data-i18n="course_progBasic">Intro to Programming</span>
+          <span class="cs-course" data-i18n="course_swDev">Software Development Basics</span>
+        </div>
+      </a>
+
+      <a href="#s2" class="cs-map-card">
+        <div class="cs-map-stage" data-i18n="csS2">🐢 S2 Why So Slow?</div>
+        <div class="cs-map-courses">
+          <span class="cs-course" data-i18n="course_ds">Data Structures</span>
+          <span class="cs-course" data-i18n="course_algo">Algorithms</span>
+        </div>
+      </a>
+
+      <a href="#s3" class="cs-map-card">
+        <div class="cs-map-stage" data-i18n="csS3">🍝 S3 Spaghetti Code</div>
+        <div class="cs-map-courses">
+          <span class="cs-course" data-i18n="course_oop">Object-Oriented Programming</span>
+          <span class="cs-course" data-i18n="course_swEng">Software Engineering</span>
+          <span class="cs-course" data-i18n="course_design">Design Patterns</span>
+        </div>
+      </a>
+
+      <a href="#s4" class="cs-map-card">
+        <div class="cs-map-stage" data-i18n="csS4">💀 S4 App Crashes</div>
+        <div class="cs-map-courses">
+          <span class="cs-course" data-i18n="course_sysProg">Systems Programming</span>
+          <span class="cs-course" data-i18n="course_progLang">Programming Languages</span>
+        </div>
+      </a>
+
+      <a href="#s5" class="cs-map-card">
+        <div class="cs-map-stage" data-i18n="csS5">🌐 S5 Server Data</div>
+        <div class="cs-map-courses">
+          <span class="cs-course" data-i18n="course_network">Computer Networks</span>
+          <span class="cs-course" data-i18n="course_db">Databases</span>
+          <span class="cs-course" data-i18n="course_security">Information Security</span>
+        </div>
+      </a>
+
+      <a href="#s6" class="cs-map-card">
+        <div class="cs-map-stage" data-i18n="csS6">🧊 S6 UI Freezes</div>
+        <div class="cs-map-courses">
+          <span class="cs-course" data-i18n="course_osConcurrency">OS (Concurrency)</span>
+          <span class="cs-course" data-i18n="course_graphics">Computer Graphics</span>
+        </div>
+      </a>
+
+      <a href="#s7" class="cs-map-card">
+        <div class="cs-map-stage" data-i18n="csS7">🧪 S7 Is the Code Right?</div>
+        <div class="cs-map-courses">
+          <span class="cs-course" data-i18n="course_testing">Software Testing</span>
+          <span class="cs-course" data-i18n="course_projMgmt">Software Project Management</span>
+        </div>
+      </a>
+
+      <a href="#s8" class="cs-map-card">
+        <div class="cs-map-stage" data-i18n="csS8">🔭 S8 Going Deeper</div>
+        <div class="cs-map-courses">
+          <span class="cs-course" data-i18n="course_compArch">Computer Architecture</span>
+          <span class="cs-course" data-i18n="course_os">Operating Systems</span>
+          <span class="cs-course" data-i18n="course_compiler">Compilers</span>
+        </div>
+      </a>
+
+      <a href="#s9" class="cs-map-card">
+        <div class="cs-map-stage" data-i18n="csS9">🧮 S9 Mathematics</div>
+        <div class="cs-map-courses">
+          <span class="cs-course" data-i18n="course_discreteMath">Discrete Mathematics</span>
+          <span class="cs-course" data-i18n="course_linearAlg">Linear Algebra</span>
+          <span class="cs-course" data-i18n="course_probStat">Probability & Statistics</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- SEARCH + NAV -->
+<div class="sticky-bar" id="stickyBar">
+  <div class="sticky-inner">
+    <div class="search-box">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input id="searchInput" type="text" data-i18n-attr="placeholder:searchPlaceholder" placeholder="Search... (e.g., ARC, async, Codable)" autocomplete="off" spellcheck="false">
+      <span id="searchCount" class="search-count"></span>
+    </div>
+    <nav class="stage-nav" id="stageNav"></nav>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<main class="main" id="main"></main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="footer-logo" data-i18n="footerBrand">Leeo</span>
+      <span class="footer-dot">·</span>
+      <span data-i18n="footerTagline">Top-Down CS Curriculum</span>
+    </div>
+    <div class="footer-links">
+      <a href="https://www.youtube.com/@개발자리" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.inflearn.com" target="_blank" rel="noopener">Inflearn</a>
+      <a href="https://m1zz.github.io/LeeoNote" target="_blank" rel="noopener">Blog</a>
+    </div>
+    <p class="footer-copy" data-i18n="footerCopy">© 2026 Leeo. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- THEME TOGGLE -->
+<a class="lang-toggle" href="../" aria-label="한국어">
+  <span class="lang-label">KO</span>
+</a>
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+  <span class="icon-moon">🌙</span>
+  <span class="icon-sun">☀️</span>
+</button>
+
+<script src="../assets/data.js"></script>
+<script src="../assets/data-en.js"></script>
+<script src="../assets/i18n.js"></script>
+<script src="../assets/app.js"></script>
+</body>
+</html>
