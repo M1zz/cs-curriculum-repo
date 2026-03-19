@@ -1,3 +1,8 @@
+/* ── ANALYTICS HELPER ─────────────────────────────────────── */
+function ga(event, params) {
+  if (typeof gtag === 'function') gtag('event', event, params);
+}
+
 /* ── HELPERS ──────────────────────────────────────────────── */
 function esc(s) {
   return String(s).replace(/[&<>"']/g, c =>
@@ -225,7 +230,16 @@ function renderAll(stages) {
     /* Chapter accordion toggle */
     section.querySelectorAll('.chapter-header').forEach(header => {
       header.addEventListener('click', () => {
-        header.closest('.chapter').classList.toggle('open');
+        const chapter = header.closest('.chapter');
+        const isOpening = !chapter.classList.contains('open');
+        chapter.classList.toggle('open');
+        if (isOpening) {
+          ga('chapter_open', {
+            chapter_id: chapter.id,
+            chapter_title: header.querySelector('.ch-title')?.textContent,
+            stage_id: stage.id
+          });
+        }
       });
     });
 
@@ -289,6 +303,7 @@ function applyI18n() {
 }
 
 /* ── INTERSECTION OBSERVER (stage nav + scroll reveal) ────── */
+const _stageViewed = new Set();
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -297,6 +312,11 @@ const observer = new IntersectionObserver(entries => {
       document.querySelectorAll('.nav-btn').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.id === id);
       });
+      if (!_stageViewed.has(id)) {
+        _stageViewed.add(id);
+        const stageTitle = entry.target.querySelector('.stage-title')?.textContent;
+        ga('stage_view', { stage_id: id, stage_title: stageTitle });
+      }
     }
   });
 }, { threshold: 0.08, rootMargin: '-100px 0px -30% 0px' });
@@ -367,6 +387,11 @@ searchInput.addEventListener('input', () => {
   const unit = t('searchUnit');
   const none = t('searchNone');
   searchCount.textContent = total ? `${total}${unit}` : none;
+
+  clearTimeout(searchInput._gaTimer);
+  searchInput._gaTimer = setTimeout(() => {
+    if (q) ga('search', { search_term: q, result_count: total });
+  }, 1000);
 });
 
 /* ── GRAPH COMPARISON TABS ────────────────────────────────── */
@@ -376,6 +401,23 @@ document.querySelectorAll('.compare-tab').forEach(tab => {
     document.querySelectorAll('.graph-panel').forEach(p => p.classList.remove('active'));
     tab.classList.add('active');
     document.getElementById('graph-' + tab.dataset.graph)?.classList.add('active');
+    ga('graph_tab_switch', { tab_name: tab.dataset.graph });
+  });
+});
+
+/* ── CTA CLICK TRACKING ───────────────────────────────────── */
+const ctaMap = [
+  { selector: 'a[href*="youtube.com"]',          name: 'YouTube' },
+  { selector: 'a[href*="inflearn.com"]',          name: 'Inflearn' },
+  { selector: 'a[href*="substack.com"]',          name: 'Substack' },
+  { selector: 'a[href*="open.kakao.com"]',        name: 'KakaoTalk' },
+  { selector: 'a[href*="LeeoNote"]',              name: 'Blog' },
+];
+ctaMap.forEach(({ selector, name }) => {
+  document.querySelectorAll(selector).forEach(el => {
+    el.addEventListener('click', () => {
+      ga('cta_click', { cta_name: name, cta_url: el.href });
+    });
   });
 });
 
