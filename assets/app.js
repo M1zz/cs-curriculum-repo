@@ -225,10 +225,8 @@ function renderAll(stages) {
       ${bottomLinkHTML}
     `;
 
-    main.appendChild(section);
-
-    /* Mid-content community banner — after Stage 4 */
-    if (stage.id === 's4') {
+    /* Community banner — before Stage 1 */
+    if (stage.id === 's1') {
       const banner = document.createElement('div');
       banner.className = 'mid-banner';
       banner.innerHTML = `
@@ -236,17 +234,19 @@ function renderAll(stages) {
           <div class="mid-banner-text">
             <span class="mid-banner-emoji">💬</span>
             <div>
-              <p class="mid-banner-title">혼자 공부하고 있나요?</p>
-              <p class="mid-banner-sub">같은 길을 걷는 iOS 개발자들과 함께하세요.</p>
+              <p class="mid-banner-title">혼자 공부하려고 하나요?</p>
+              <p class="mid-banner-sub">같은 커리큘럼을 함께 시작하는 iOS 개발자들이 있습니다.</p>
             </div>
           </div>
           <div class="mid-banner-actions">
-            <a href="https://open.kakao.com/o/pkdN2Oli" target="_blank" rel="noopener" class="mid-banner-btn">오픈채팅 참여</a>
+            <a href="https://open.kakao.com/o/pkdN2Oli" target="_blank" rel="noopener" class="mid-banner-btn">같이 시작하기</a>
             <a href="https://leeo25.substack.com/" target="_blank" rel="noopener" class="mid-banner-link">뉴스레터 구독 →</a>
           </div>
         </div>`;
       main.appendChild(banner);
     }
+
+    main.appendChild(section);
 
     /* Chapter accordion toggle */
     section.querySelectorAll('.chapter-header').forEach(header => {
