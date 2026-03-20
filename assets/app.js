@@ -35,6 +35,9 @@ function renderAll(stages) {
       <span class="flow-card-ico">${stage.ico}</span>
       <div class="flow-card-title" style="color:var(--${stage.id})">${esc(stage.title)}</div>
     `;
+    card.addEventListener('click', () => {
+      ga('hero_card_click', { stage_id: stage.id, stage_title: stage.title });
+    });
     heroFlow.appendChild(card);
   });
 
@@ -46,6 +49,7 @@ function renderAll(stages) {
     btn.innerHTML = `<span class="nav-dot" style="background:var(--${stage.id})"></span>S${stage.n} ${stage.ico}`;
     btn.addEventListener('click', () => {
       document.getElementById(stage.id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      ga('stage_nav_click', { stage_id: stage.id, stage_title: stage.title });
     });
     stageNav.appendChild(btn);
   });
@@ -239,10 +243,15 @@ function renderAll(stages) {
             </div>
           </div>
           <div class="mid-banner-actions">
-            <a href="https://open.kakao.com/o/pkdN2Oli" target="_blank" rel="noopener" class="mid-banner-btn">같이 시작하기</a>
-            <a href="https://leeo25.substack.com/" target="_blank" rel="noopener" class="mid-banner-link">뉴스레터 구독 →</a>
+            <a href="https://open.kakao.com/o/pkdN2Oli" target="_blank" rel="noopener" class="mid-banner-btn" data-cta="KakaoTalk_banner">같이 시작하기</a>
+            <a href="https://leeo25.substack.com/" target="_blank" rel="noopener" class="mid-banner-link" data-cta="Substack_banner">뉴스레터 구독 →</a>
           </div>
         </div>`;
+      banner.querySelectorAll('[data-cta]').forEach(el => {
+        el.addEventListener('click', () => {
+          ga('mid_banner_click', { cta_name: el.dataset.cta, url: el.href });
+        });
+      });
       main.appendChild(banner);
     }
 
@@ -254,12 +263,12 @@ function renderAll(stages) {
         const chapter = header.closest('.chapter');
         const isOpening = !chapter.classList.contains('open');
         chapter.classList.toggle('open');
+        const chapterId = chapter.id;
+        const chapterTitle = header.querySelector('.ch-title')?.textContent;
         if (isOpening) {
-          ga('chapter_open', {
-            chapter_id: chapter.id,
-            chapter_title: header.querySelector('.ch-title')?.textContent,
-            stage_id: stage.id
-          });
+          ga('chapter_open', { chapter_id: chapterId, chapter_title: chapterTitle, stage_id: stage.id });
+        } else {
+          ga('chapter_close', { chapter_id: chapterId, chapter_title: chapterTitle, stage_id: stage.id });
         }
       });
     });
@@ -270,13 +279,31 @@ function renderAll(stages) {
     /* Quiz interaction handler */
     section.querySelectorAll('.scenario-options').forEach(group => {
       const scenario = group.dataset.scenario;
+      const ch = stage.chapters.find(c => c.id === scenario);
       group.querySelectorAll('.option-btn').forEach(btn => {
         btn.addEventListener('click', () => {
           group.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
           btn.classList.add('selected');
           const resultPanel = document.getElementById('result-' + scenario);
           resultPanel.classList.add('visible');
+          const choice = btn.dataset.choice;
+          const isCorrect = ch?.quiz?.answer?.[choice]?.correct ?? null;
+          ga('quiz_attempt', { chapter_id: scenario, stage_id: stage.id, choice, is_correct: isCorrect });
         });
+      });
+    });
+
+    /* Stage link click */
+    section.querySelectorAll('.stage-link').forEach(link => {
+      link.addEventListener('click', () => {
+        ga('stage_link_click', { stage_id: stage.id, stage_title: stage.title, url: link.href });
+      });
+    });
+
+    /* Sources expand (근거 펼쳐보기) */
+    section.querySelectorAll('details.graph-sources').forEach(details => {
+      details.addEventListener('toggle', () => {
+        if (details.open) ga('sources_expand', { stage_id: stage.id });
       });
     });
   });
@@ -371,8 +398,11 @@ searchInput.addEventListener('input', () => {
     document.querySelectorAll('.stage, .chapter, .topic').forEach(el => {
       el.classList.remove('hidden');
     });
+    if (searchInput._lastQuery) ga('search_clear', { last_term: searchInput._lastQuery });
+    searchInput._lastQuery = '';
     return;
   }
+  searchInput._lastQuery = q;
 
   const re = new RegExp(escRe(q), 'gi');
   let total = 0;
@@ -457,6 +487,28 @@ if (saved) {
 
 themeToggle.addEventListener('click', () => {
   const current = document.documentElement.getAttribute('data-theme');
-  applyTheme(current === 'dark' ? 'light' : 'dark');
+  const next = current === 'dark' ? 'light' : 'dark';
+  applyTheme(next);
+  ga('theme_change', { theme: next });
 });
+
+/* ── LANGUAGE SWITCH TRACKING ─────────────────────────────── */
+document.querySelector('.lang-toggle')?.addEventListener('click', () => {
+  const to = document.documentElement.lang === 'ko' ? 'en' : 'ko';
+  ga('language_switch', { to });
+});
+
+/* ── SCROLL DEPTH TRACKING ────────────────────────────────── */
+const _scrollDepths = new Set();
+window.addEventListener('scroll', () => {
+  const scrolled = window.scrollY + window.innerHeight;
+  const total = document.documentElement.scrollHeight;
+  const pct = Math.floor((scrolled / total) * 100);
+  [25, 50, 75, 90].forEach(depth => {
+    if (pct >= depth && !_scrollDepths.has(depth)) {
+      _scrollDepths.add(depth);
+      ga('scroll_depth', { depth_percent: depth });
+    }
+  });
+}, { passive: true });
 
