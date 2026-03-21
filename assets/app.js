@@ -260,13 +260,13 @@ function renderAll(stages) {
           <div class="mid-banner-text">
             <span class="mid-banner-emoji">💬</span>
             <div>
-              <p class="mid-banner-title">혼자 공부하려고 하나요?</p>
-              <p class="mid-banner-sub">같은 커리큘럼을 함께 시작하는 iOS 개발자들이 있습니다.</p>
+              <p class="mid-banner-title">${esc(t('midBannerTitle'))}</p>
+              <p class="mid-banner-sub">${esc(t('midBannerSub'))}</p>
             </div>
           </div>
           <div class="mid-banner-actions">
-            <a href="https://open.kakao.com/o/pkdN2Oli" target="_blank" rel="noopener" class="mid-banner-btn" data-cta="KakaoTalk_banner">같이 시작하기</a>
-            <a href="https://leeo25.substack.com/" target="_blank" rel="noopener" class="mid-banner-link" data-cta="Substack_banner">뉴스레터 구독 →</a>
+            <a href="https://open.kakao.com/o/pkdN2Oli" target="_blank" rel="noopener" class="mid-banner-btn" data-cta="KakaoTalk_banner">${esc(t('midBannerBtn'))}</a>
+            <a href="https://leeo25.substack.com/" target="_blank" rel="noopener" class="mid-banner-link" data-cta="Substack_banner">${esc(t('midBannerLink'))}</a>
           </div>
         </div>`;
       banner.querySelectorAll('[data-cta]').forEach(el => {

@@ -9,9 +9,9 @@ const UI = {
     // Hero
     heroLabel: '개발자리 · 실무에서 부딪히며 배우는 CS 커리큘럼',
     heroTitle: 'CS 면접에서<br><em>막혀본 적</em><br>있나요?',
-    heroSub: '앱은 만드는데, "왜 느린지" 설명 못하겠다면.<br>iOS 개발하며 부딪히는 진짜 문제로 CS를 배우는<br>Top-Down 커리큘럼입니다.',
-    heroSocialProof: '지금 <strong>iOS 개발자들</strong>이 이 커리큘럼으로 함께 학습하고 있습니다.',
-    heroReq: '시작하려면 <strong>Mac</strong>과 <strong>Xcode</strong>만 있으면 됩니다.',
+    heroSub: '앱은 만드는데, "왜 느린지" 설명 못하겠다면.<br>iOS 개발하며 부딪히는 진짜 문제로<br>컴퓨터 공학을 배우는 커리큘럼입니다.',
+    heroSocialProof: '시작하려면 <strong>Mac</strong>과 <strong>Xcode</strong>만 있으면 됩니다.',
+    pillFree: 'FREE',
     btnNewsletter: '무료 뉴스레터 구독',
     btnCurriculum: '커리큘럼 보기 →',
     btnCsMap: '전공 과목 매칭 보기 →',
@@ -109,7 +109,7 @@ const UI = {
 
     // Footer
     footerBrand: '개발자리',
-    footerTagline: 'Top-Down 컴퓨터 공학 Curriculum',
+    footerTagline: '실무에서 부딪히며 배우는 CS 커리큘럼',
     footerCopy: '© 2026 개발자리 · Leeo. All rights reserved.',
 
     // Theme
@@ -128,20 +128,37 @@ const UI = {
     solveLabel: '🎯 배워서 해결',
     statusLabel: '✅ 이 단계를 마친 당신은',
     quizIco: '🧪',
+
+    // Community
+    commEyebrow: '함께 성장하기',
+    commHeading: '커뮤니티 & 뉴스레터',
+    commNewsTitle: '뉴스레터 구독',
+    commNewsSub: 'Substack · 개발자리',
+    commNewsDesc: '새 챕터 업데이트, iOS 개발 인사이트, 실무 CS 연결 내용을 격주로 받아보세요.',
+    commKakaoTitle: '오픈 카카오톡',
+    commKakaoSub: '함께 공부하는 iOS 커뮤니티',
+    commKakaoDesc: '질문하고 답하며 함께 성장하는 공간. QR 코드 또는 링크로 참여하기',
+    commKakaoBtn: '오픈채팅 참여하기 →',
+
+    // Mid-banner
+    midBannerTitle: '혼자 공부하려고 하나요?',
+    midBannerSub: '같은 커리큘럼을 함께 시작하는 iOS 개발자들이 있습니다.',
+    midBannerBtn: '같이 시작하기',
+    midBannerLink: '뉴스레터 구독 →',
   },
   en: {
     // Meta
-    metaDesc: 'A Top-Down CS curriculum that teaches computer science by solving real problems encountered while building apps. By Leeo, for iOS developers.',
+    metaDesc: 'Ever been stumped in a CS interview? Learn CS through real problems you hit as an iOS developer. 9 stages, 200+ topics, completely free.',
     ogTitle: 'CS Curriculum for App Developers — Leeo',
-    ogDesc: 'Building from scratch is too slow in a fast-changing world. Build first, hit walls, then dig deep into the knowledge you need — a survival-oriented Top-Down approach.',
+    ogDesc: 'You can build apps, but can\'t explain why they\'re slow? Learn CS through real problems you hit as an iOS developer.',
     pageTitle: 'CS Curriculum for App Developers — Leeo',
 
     // Hero
     heroLabel: 'Leeo · Learn CS by Building Real Apps',
     heroTitle: 'Ever been<br><em>stumped</em> in a<br>CS interview?',
-    heroSub: 'You can build apps, but can\'t explain why they\'re slow?<br>Learn CS through real problems you hit as an iOS developer —<br>a Top-Down curriculum.',
-    heroSocialProof: '<strong>iOS developers</strong> are learning CS with this curriculum right now.',
-    heroReq: 'All you need is a <strong>Mac</strong> and <strong>Xcode</strong> to get started.',
+    heroSub: 'You can build apps, but can\'t explain why they\'re slow?<br>Learn CS through real problems you hit<br>as an iOS developer.',
+    heroSocialProof: 'All you need is a <strong>Mac</strong> and <strong>Xcode</strong> to get started.',
+    pillFree: 'FREE',
     btnNewsletter: 'Free Newsletter',
     btnCurriculum: 'View Curriculum →',
     btnCsMap: 'See Course Mapping →',
@@ -239,7 +256,7 @@ const UI = {
 
     // Footer
     footerBrand: 'Leeo',
-    footerTagline: 'Top-Down CS Curriculum',
+    footerTagline: 'Learn CS by Building Real Apps',
     footerCopy: '© 2026 Leeo. All rights reserved.',
 
     // Theme
@@ -258,6 +275,23 @@ const UI = {
     solveLabel: '🎯 What You Learn to Solve',
     statusLabel: '✅ After This Stage, You Can...',
     quizIco: '🧪',
+
+    // Community
+    commEyebrow: 'Grow Together',
+    commHeading: 'Community & Newsletter',
+    commNewsTitle: 'Newsletter',
+    commNewsSub: 'Substack · Leeo',
+    commNewsDesc: 'Get biweekly updates on new chapters, iOS insights, and practical CS connections.',
+    commKakaoTitle: 'Open KakaoTalk',
+    commKakaoSub: 'iOS Study Community',
+    commKakaoDesc: 'Ask questions, share answers, and grow together. Join via QR code or link.',
+    commKakaoBtn: 'Join Chat →',
+
+    // Mid-banner
+    midBannerTitle: 'Studying alone?',
+    midBannerSub: 'iOS developers are starting this curriculum together.',
+    midBannerBtn: 'Join Together',
+    midBannerLink: 'Newsletter →',
   }
 };
 
