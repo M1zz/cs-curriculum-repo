@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://m1zz.github.io/cs-curriculum-repo/sitemap.xml
