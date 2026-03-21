@@ -195,6 +195,20 @@ body::after {
   color: var(--text);
 }
 
+.hero-social-proof {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 20px;
+  padding: 8px 16px;
+  background: linear-gradient(135deg, rgba(37,99,235,.06), rgba(147,51,234,.06));
+  border: 1px solid rgba(37,99,235,.15);
+  border-radius: 100px;
+  width: fit-content;
+  opacity: 0;
+  animation: fadeUp .6s ease .65s forwards;
+}
+.hero-social-proof strong { color: var(--text); font-weight: 600; }
+
 .hero-actions {
   display: flex;
   gap: 12px;
@@ -1840,6 +1854,7 @@ mark {
   }
   .hero-sub { max-width: 100%; }
   .hero-meta { justify-content: center; }
+  .hero-social-proof { margin-left: auto; margin-right: auto; text-align: center; }
   .hero-actions { justify-content: center; }
   .hero-flow { display: none; }
   .sticky-inner { padding: 10px 20px; }

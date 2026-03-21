@@ -1,17 +1,19 @@
 const UI = {
   ko: {
     // Meta
-    metaDesc: '앱을 만들다 마주치는 문제를 해결하며 컴퓨터 공학을 배우는 Top-Down 커리큘럼. 개발자리 Leeo의 iOS 개발자를 위한 컴퓨터 공학 로드맵.',
+    metaDesc: 'CS 면접에서 막히셨나요? iOS 개발하며 부딪히는 진짜 문제로 컴퓨터 공학을 배우는 Top-Down 커리큘럼. 9단계 · 200+ 토픽.',
     ogTitle: '앱 개발자를 위한 컴퓨터 공학 커리큘럼 — 개발자리',
-    ogDesc: '변화가 빠른 세상에서 바닥부터 쌓아올리는 건 너무 느립니다. 먼저 만들고, 부딪히고, 그때 필요한 지식을 깊이 파는 생존을 위한 Top-Down 어프로치입니다.',
+    ogDesc: '앱은 만드는데, CS 면접에서 막히셨나요? iOS 개발하며 부딪히는 진짜 문제로 컴퓨터 공학을 배우는 Top-Down 커리큘럼입니다.',
     pageTitle: '앱 개발자를 위한 컴퓨터 공학 커리큘럼 — 개발자리',
 
     // Hero
     heroLabel: '개발자리 · Top-Down 컴퓨터 공학 Curriculum',
-    heroTitle: '앱 개발자를 위한<br><em>컴퓨터 공학</em><br>지식',
-    heroSub: '변화가 빠른 세상에서 바닥부터 쌓아올리는 건 너무 느립니다.<br>먼저 만들고, 부딪히고, 그때 필요한 지식을 깊이 파는<br>생존을 위한 Top-Down 어프로치입니다.',
+    heroTitle: 'CS 면접에서<br><em>막혀본 적</em><br>있나요?',
+    heroSub: '앱은 만드는데, "왜 느린지" 설명 못하겠다면.<br>iOS 개발하며 부딪히는 진짜 문제로 CS를 배우는<br>Top-Down 커리큘럼입니다.',
+    heroSocialProof: '지금 <strong>iOS 개발자들</strong>이 이 커리큘럼으로 함께 학습하고 있습니다.',
     heroReq: '시작하려면 <strong>Mac</strong>과 <strong>Xcode</strong>만 있으면 됩니다.',
-    btnCurriculum: '커리큘럼 보기',
+    btnNewsletter: '무료 뉴스레터 구독',
+    btnCurriculum: '커리큘럼 보기 →',
     btnCsMap: '전공 과목 매칭 보기 →',
 
     // Graph section
@@ -136,10 +138,12 @@ const UI = {
 
     // Hero
     heroLabel: 'Leeo · Top-Down CS Curriculum',
-    heroTitle: 'Computer Science<br><em>Knowledge</em><br>for App Developers',
-    heroSub: 'Building from scratch is too slow in a fast-changing world.<br>Build first, hit walls, then dig deep into what you need —<br>a survival-oriented Top-Down approach.',
+    heroTitle: 'Ever been<br><em>stumped</em> in a<br>CS interview?',
+    heroSub: 'You can build apps, but can\'t explain why they\'re slow?<br>Learn CS through real problems you hit as an iOS developer —<br>a Top-Down curriculum.',
+    heroSocialProof: '<strong>iOS developers</strong> are learning CS with this curriculum right now.',
     heroReq: 'All you need is a <strong>Mac</strong> and <strong>Xcode</strong> to get started.',
-    btnCurriculum: 'View Curriculum',
+    btnNewsletter: 'Free Newsletter',
+    btnCurriculum: 'View Curriculum →',
     btnCsMap: 'See Course Mapping →',
 
     // Graph section
