@@ -209,6 +209,19 @@ body::after {
 }
 .hero-social-proof strong { color: var(--text); font-weight: 600; }
 
+.hero-subscribe {
+  margin-bottom: 20px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  width: fit-content;
+  opacity: 0;
+  animation: fadeUp .6s ease .68s forwards;
+}
+.hero-subscribe iframe {
+  border-radius: var(--radius-md);
+  max-width: 100%;
+}
+
 .hero-actions {
   display: flex;
   gap: 12px;
@@ -1855,6 +1868,8 @@ mark {
   .hero-sub { max-width: 100%; }
   .hero-meta { justify-content: center; }
   .hero-social-proof { margin-left: auto; margin-right: auto; text-align: center; }
+  .hero-subscribe { margin-left: auto; margin-right: auto; }
+  .hero-subscribe iframe { width: 100%; max-width: 480px; }
   .hero-actions { justify-content: center; }
   .hero-flow { display: none; }
   .sticky-inner { padding: 10px 20px; }
