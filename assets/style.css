@@ -219,7 +219,12 @@ body::after {
 }
 .hero-subscribe iframe {
   border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--surface);
   max-width: 100%;
+}
+[data-theme="dark"] .hero-subscribe iframe {
+  filter: invert(1) hue-rotate(180deg);
 }
 
 .hero-actions {

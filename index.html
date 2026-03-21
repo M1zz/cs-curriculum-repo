@@ -58,7 +58,7 @@
       <span class="req-text" data-i18n-html="heroReq">시작하려면 <strong>Mac</strong>과 <strong>Xcode</strong>만 있으면 됩니다.</span>
     </div>
     <div class="hero-subscribe">
-      <iframe src="https://leeo25.substack.com/embed" width="480" height="320" style="border: 1px solid #EEE; background: white;" frameborder="0" scrolling="no"></iframe>
+      <iframe src="https://leeo25.substack.com/embed" width="480" height="150" frameborder="0" scrolling="no"></iframe>
     </div>
     <div class="hero-actions">
       <a href="#s1" class="btn-primary" data-i18n="btnCurriculum">커리큘럼 보기</a>
@@ -360,6 +360,21 @@
   </div>
 </section>
 
+<!-- SEARCH + NAV -->
+<div class="sticky-bar" id="stickyBar">
+  <div class="sticky-inner">
+    <div class="search-box">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input id="searchInput" type="text" data-i18n-attr="placeholder:searchPlaceholder" placeholder="검색... (예: ARC, async, Codable)" autocomplete="off" spellcheck="false">
+      <span id="searchCount" class="search-count"></span>
+    </div>
+    <nav class="stage-nav" id="stageNav"></nav>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<main class="main" id="main"></main>
+
 <!-- COMMUNITY & NEWSLETTER -->
 <section class="community-section">
   <div class="community-inner">
@@ -403,21 +418,6 @@
     </div>
   </div>
 </section>
-
-<!-- SEARCH + NAV -->
-<div class="sticky-bar" id="stickyBar">
-  <div class="sticky-inner">
-    <div class="search-box">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-      <input id="searchInput" type="text" data-i18n-attr="placeholder:searchPlaceholder" placeholder="검색... (예: ARC, async, Codable)" autocomplete="off" spellcheck="false">
-      <span id="searchCount" class="search-count"></span>
-    </div>
-    <nav class="stage-nav" id="stageNav"></nav>
-  </div>
-</div>
-
-<!-- MAIN CONTENT -->
-<main class="main" id="main"></main>
 
 <!-- FOOTER -->
 <footer class="footer">

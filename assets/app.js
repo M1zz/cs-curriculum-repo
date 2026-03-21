@@ -512,3 +512,44 @@ window.addEventListener('scroll', () => {
   });
 }, { passive: true });
 
+/* ── SECTION VIEW FUNNEL ─────────────────────────────────── */
+const _sectionViewed = new Set();
+const sectionObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.id || entry.target.className.split(' ')[0];
+      if (!_sectionViewed.has(id)) {
+        _sectionViewed.add(id);
+        ga('section_view', { section_id: id });
+      }
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.hero, .compare, .cs-map, .community-section').forEach(s => sectionObserver.observe(s));
+
+/* ── TIME ON PAGE TRACKING ───────────────────────────────── */
+const _pageStart = Date.now();
+const _timeMilestones = new Set();
+setInterval(() => {
+  const sec = Math.floor((Date.now() - _pageStart) / 1000);
+  [30, 60, 180, 300].forEach(m => {
+    if (sec >= m && !_timeMilestones.has(m)) {
+      _timeMilestones.add(m);
+      ga('time_on_page', { seconds: m });
+    }
+  });
+}, 10000);
+
+/* ── SUBSTACK IFRAME INTERACTION ─────────────────────────── */
+document.querySelectorAll('.hero-subscribe iframe').forEach(iframe => {
+  iframe.addEventListener('load', () => {
+    ga('substack_embed_load', { location: 'hero' });
+  });
+});
+window.addEventListener('blur', () => {
+  const active = document.activeElement;
+  if (active && active.tagName === 'IFRAME' && active.closest('.hero-subscribe')) {
+    ga('substack_embed_interact', { location: 'hero' });
+  }
+});
+
