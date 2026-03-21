@@ -7,7 +7,7 @@ const UI = {
     pageTitle: '앱 개발자를 위한 컴퓨터 공학 커리큘럼 — 개발자리',
 
     // Hero
-    heroLabel: '개발자리 · Top-Down 컴퓨터 공학 Curriculum',
+    heroLabel: '개발자리 · 실무에서 부딪히며 배우는 CS 커리큘럼',
     heroTitle: 'CS 면접에서<br><em>막혀본 적</em><br>있나요?',
     heroSub: '앱은 만드는데, "왜 느린지" 설명 못하겠다면.<br>iOS 개발하며 부딪히는 진짜 문제로 CS를 배우는<br>Top-Down 커리큘럼입니다.',
     heroSocialProof: '지금 <strong>iOS 개발자들</strong>이 이 커리큘럼으로 함께 학습하고 있습니다.',
@@ -137,7 +137,7 @@ const UI = {
     pageTitle: 'CS Curriculum for App Developers — Leeo',
 
     // Hero
-    heroLabel: 'Leeo · Top-Down CS Curriculum',
+    heroLabel: 'Leeo · Learn CS by Building Real Apps',
     heroTitle: 'Ever been<br><em>stumped</em> in a<br>CS interview?',
     heroSub: 'You can build apps, but can\'t explain why they\'re slow?<br>Learn CS through real problems you hit as an iOS developer —<br>a Top-Down curriculum.',
     heroSocialProof: '<strong>iOS developers</strong> are learning CS with this curriculum right now.',

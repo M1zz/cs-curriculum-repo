@@ -3,6 +3,23 @@ function ga(event, params) {
   if (typeof gtag === 'function') gtag('event', event, params);
 }
 
+/* ── PROGRESS TRACKING ───────────────────────────────────── */
+const _completedTopics = new Set(JSON.parse(localStorage.getItem('completedTopics') || '[]'));
+
+function saveProgress() {
+  localStorage.setItem('completedTopics', JSON.stringify([..._completedTopics]));
+  updateProgressBar();
+}
+
+function updateProgressBar() {
+  const bar = document.getElementById('progressBar');
+  if (!bar) return;
+  const total = document.querySelectorAll('.topic-check').length;
+  if (total === 0) return;
+  const done = _completedTopics.size;
+  bar.style.width = Math.round((done / total) * 100) + '%';
+}
+
 /* ── HELPERS ──────────────────────────────────────────────── */
 function esc(s) {
   return String(s).replace(/[&<>"']/g, c =>
@@ -63,13 +80,18 @@ function renderAll(stages) {
     let chaptersHTML = '';
     stage.chapters.forEach(ch => {
       let topicsHTML = '';
-      ch.topics.forEach(topic => {
+      ch.topics.forEach((topic, ti) => {
+        const topicId = `${ch.id}_t${ti}`;
+        const checked = _completedTopics.has(topicId);
         const searchText = [topic.name, topic.sub, ...topic.details].join(' ');
         topicsHTML += `
-          <div class="topic" data-search="${esc(searchText)}">
+          <div class="topic${checked ? ' completed' : ''}" data-search="${esc(searchText)}" data-topic-id="${topicId}">
             <div class="topic-left">
-              <div class="topic-name">${esc(topic.name)}</div>
-              <div class="topic-sub">${esc(topic.sub)}</div>
+              <input type="checkbox" class="topic-check" data-topic="${topicId}"${checked ? ' checked' : ''}>
+              <div class="topic-left-text">
+                <div class="topic-name">${esc(topic.name)}</div>
+                <div class="topic-sub">${esc(topic.sub)}</div>
+              </div>
             </div>
             <div class="topic-right">
               <ul class="detail-list">
@@ -273,6 +295,24 @@ function renderAll(stages) {
       });
     });
 
+    /* Topic completion checkboxes */
+    section.querySelectorAll('.topic-check').forEach(cb => {
+      cb.addEventListener('change', e => {
+        e.stopPropagation();
+        const topicId = cb.dataset.topic;
+        const topicEl = cb.closest('.topic');
+        if (cb.checked) {
+          _completedTopics.add(topicId);
+          topicEl.classList.add('completed');
+        } else {
+          _completedTopics.delete(topicId);
+          topicEl.classList.remove('completed');
+        }
+        saveProgress();
+        ga('topic_complete', { topic_id: topicId, stage_id: stage.id, completed: cb.checked });
+      });
+    });
+
     /* Open first chapter by default */
     section.querySelector('.chapter')?.classList.add('open');
 
@@ -372,6 +412,20 @@ const observer = new IntersectionObserver(entries => {
 /* ── INITIAL RENDER ────────────────────────────────────────── */
 renderAll(getStages());
 applyI18n();
+updateProgressBar();
+
+/* ── STICKY BAR SCROLL VISIBILITY ────────────────────────── */
+(function() {
+  const bar = document.getElementById('stickyBar');
+  const hero = document.getElementById('hero');
+  if (!bar || !hero) return;
+  const stickyObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      bar.classList.toggle('sticky-hidden', entry.isIntersecting);
+    });
+  }, { threshold: 0 });
+  stickyObserver.observe(hero);
+})();
 
 /* ── SEARCH ──────────────────────────────────────────────── */
 const searchInput = document.getElementById('searchInput');
