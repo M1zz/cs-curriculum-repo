@@ -1768,6 +1768,21 @@ mark {
   object-fit: cover;
 }
 
+.comm-subscribe {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-top: auto;
+}
+.comm-subscribe iframe {
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  display: block;
+}
+[data-theme="dark"] .comm-subscribe iframe {
+  filter: invert(1) hue-rotate(180deg);
+}
+
 .comm-btn {
   display: inline-flex;
   align-items: center;
