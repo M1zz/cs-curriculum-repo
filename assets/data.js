@@ -29,7 +29,7 @@ const STAGES = [
         topics: [
           { name: 'SwiftUI 첫 화면', sub: 'View, body, preview', details: ['ContentView — 앱 시작점, struct가 View를 채택하는 구조', 'Text, Image, Button — 가장 자주 쓰는 3가지', 'VStack, HStack, ZStack — 화면을 쌓는 3가지 방향', 'modifier 체이닝 — .font(), .foregroundColor(), .padding()', 'Xcode Previews — 빌드 없이 실시간 UI 확인'] },
           { name: '레이아웃 시스템', sub: '내 맘대로 안 되는 이유', details: ['frame — 크기 직접 지정, maxWidth: .infinity', 'padding vs offset — 여백 추가 vs 위치 이동', 'Spacer — 남은 공간 채우기', 'GeometryReader — 부모 크기 읽어서 반응형으로', 'alignment — 정렬 기준점, 왜 기대와 다르게 동작하는가'] },
-          { name: '앱 구조 이해', sub: '@main, App, Scene, View', details: ['@main — 진입점 마킹, App 프로토콜 채택', 'WindowGroup — 기본 Scene', 'View 계층 — 부모/자식 관계가 레이아웃에 미치는 영향', '실기기 vs 시뮬레이터 — 성능 차이가 나는 이유'] },
+          { name: '앱 구조 이해', sub: '@main, App, Scene, View', details: ['@main — 진입점 마킹, App 프로토콜 채택', 'WindowGroup — 기본 Scene', 'View 계층 — 부모/자식 관계가 레이아웃에 미치는 영향', '실기기 vs 시뮬레이터 — 성능 차이가 나는 이유', 'onAppear / onDisappear — 뷰가 화면에 나타나고 사라지는 시점 처리', 'App 생명주기 — foreground, background, inactive 상태와 ScenePhase'] },
         ]
       },
       {
@@ -48,7 +48,7 @@ const STAGES = [
           }
         },
         topics: [
-          { name: '@State의 본질', sub: '왜 그냥 var가 아닌가', details: ['SwiftUI 렌더링 루프 — 상태 변화 → View 재생성', '@State — View가 소유하는 값, 변경 시 자동 재렌더', '@Binding — 부모의 State를 자식이 읽고 쓰기', '단방향 데이터 흐름 — 상태는 항상 위에서 아래로', '왜 View 안에서 직접 var를 바꿔도 반영이 안 되는가'] },
+          { name: '@State의 본질', sub: '왜 그냥 var가 아닌가', details: ['Source of Truth — 상태의 단 하나의 원본. 모든 뷰는 이 원본을 구독한다', 'SwiftUI 렌더링 루프 — 상태 변화 → View 재생성', '@State — View가 소유하는 값, 변경 시 자동 재렌더', '@Binding — 부모의 State를 자식이 읽고 쓰기', '단방향 데이터 흐름 — 상태는 항상 위에서 아래로', '왜 View 안에서 직접 var를 바꿔도 반영이 안 되는가'] },
           { name: '사용자 입력', sub: 'TextField, Toggle, Slider', details: ['TextField + @State String 연결', 'Toggle — Bool 상태에 바인딩', 'Slider — 범위 내 실수 값 선택', 'Picker — 목록 선택, Segmented 스타일', '키보드 타입 설정, 완료 버튼 처리'] },
           { name: '리스트와 네비게이션', sub: '데이터를 목록으로 보여주기', details: ['List + ForEach — 배열을 목록으로 렌더링', 'Identifiable — 각 항목을 식별하는 방법', 'onDelete — 스와이프 삭제', 'NavigationStack + NavigationLink — 화면 이동', 'Sheet, Alert — 모달과 다이얼로그'] },
           { name: '첫 완성 앱', sub: '할 일 앱 처음부터 끝까지', details: ['Todo struct 설계 — id, title, isCompleted', '@State [Todo] — 추가/삭제/완료 토글', 'UserDefaults + Codable — 재시작 후에도 데이터 유지', 'Sheet로 새 할 일 입력 화면 연결', 'Empty State — 목록이 비었을 때 안내 화면'] },
@@ -94,6 +94,20 @@ const STAGES = [
           { name: '타입과 옵셔널', sub: '"must be unwrapped" 에러 해결', details: ['let vs var, 타입 추론 vs 명시', 'nil — "값이 없음"을 표현하는 방법', 'if let / guard let — 안전한 언래핑', '옵셔널 체이닝 ?. — nil 전파 막기', 'nil 병합 ?? — 기본값 / 강제 언래핑 ! 언제 써도 되는가'] },
           { name: '컬렉션 핵심', sub: '"Index out of range" 에러 해결', details: ['Array — 순서 있는 목록, 인덱스 주의', 'Dictionary — 키 조회 결과가 옵셔널인 이유', 'Set — 중복 없음, contains 성능', 'map, filter, forEach — 반복 대신 선언적으로'] },
           { name: '클로저 읽기', sub: '{ } 코드가 왜 이렇게 생겼는가', details: ['기본 문법 — { 파라미터 in 본문 }', '후행 클로저 — 마지막 파라미터를 밖으로', '단축 인자명 $0, $1', '[weak self] — 언제 필요한가, 언제 없어도 되는가'] },
+          { name: '값 타입 vs 참조 타입', sub: '@State vs @ObservedObject 이해의 전제조건', details: [
+            'struct — 대입하면 복사됨, 독립적인 인스턴스',
+            'class — 대입하면 같은 객체를 가리킴 (참조)',
+            '함수에 전달 시 — struct는 복사, class는 주소',
+            '@State가 struct(값 타입)여야 하는 이유 — SwiftUI가 변경을 감지하는 원리',
+            'mutating 키워드 — struct에서 자신을 수정할 때 필요한 이유',
+          ] },
+          { name: '에러 처리 기초', sub: '앱이 조용히 실패하지 않게 하기', details: [
+            'throws — 실패할 수 있는 함수 선언법',
+            'try / do-catch — 에러를 잡아서 처리하는 패턴',
+            'try? — 에러를 nil로 변환 (언제 써도 되는가)',
+            '에러를 무시하면 생기는 일 — 빈 화면, 조용한 앱 실패',
+            'S5에서 배울 심화 내용 예고 — Result, assert, defer',
+          ] },
         ]
       },
     ]
@@ -104,7 +118,7 @@ const STAGES = [
     problem: '목록에 데이터가 많아지니 스크롤이 버벅입니다 / 검색 결과가 늦게 뜹니다',
     solve: '자료구조 선택 기준, 알고리즘 복잡도, 올바른 컬렉션 사용',
     link: 'https://m1zz.github.io/swift-data-structures/',
-    analogy: '🛹 더 빠른 스케이트보드',
+    analogy: '⚙️ 기어 달린 자전거',
     status: '느린 코드를 찾아서 고칠 수 있습니다. Array 대신 Dictionary를 쓰면 왜 빨라지는지 설명할 수 있습니다. Big-O를 읽고, Instruments로 병목을 찾습니다. 코딩 테스트 기초 문제를 풀 수 있습니다.',
     gap: '기능이 늘면서 코드가 스파게티가 됩니다. 파일 하나가 1000줄이 넘고, 수정하면 다른 곳이 깨집니다. "빠르지만 읽을 수 없는 코드"가 되어갑니다.',
     next: '속도는 얻었지만, 커브를 돌 수 없습니다. 구조가 필요합니다.',
@@ -170,6 +184,7 @@ const STAGES = [
           { name: '정렬', sub: '언제 어떤 정렬이 빠른가', details: ['삽입 정렬 — 거의 정렬된 데이터엔 가장 빠름', '합병 정렬 — 안정 정렬 필요 시', '퀵 정렬 — 평균 O(n log n), Swift sort() 내부 알고리즘', '커스텀 정렬 — sort { $0.date > $1.date }'] },
           { name: '탐색', sub: '검색 기능 성능 높이기', details: ['이진 탐색 — 정렬된 배열에서 O(log n)', '하한/상한 탐색 — 범위 조건 구현', '실전: 검색 필터 O(n²) → O(n) 개선 과정'] },
           { name: '핵심 패러다임', sub: '복잡한 로직을 체계적으로 접근', details: ['동적 프로그래밍 — 중복 계산 제거 (캐싱)', '그리디 — 매 순간 최선 선택', '투 포인터 — O(n²)를 O(n)으로', '분할 정복 — 큰 문제를 절반으로 쪼개기', 'Swift 코딩테스트 환경 — 백준/프로그래머스'] },
+          { name: 'iOS 앱에서 바로 적용하기', sub: '배운 자료구조·알고리즘을 SwiftUI 코드에 연결', details: ['List 검색 필터 — filter O(n), 10만 건이면 버벅이는 이유를 이제 설명할 수 있다', '즐겨찾기 토글 — Array.contains O(n) vs Set.contains O(1) 실제 속도 차이', '최근 검색어 스택 — LIFO 구조를 앱 기능으로 구현', '캐시 레이어 — Dictionary로 O(1) 조회 캐시 직접 만들기', 'Instruments로 Before/After — 자료구조 교체 전후 CPU Time 직접 측정'] },
         ]
       },
     ]
@@ -226,6 +241,7 @@ const STAGES = [
           { name: '생성 패턴', sub: '객체 만드는 방식을 표준화', details: ['Factory — 생성 로직을 한 곳에 모으기', 'Builder — 단계적으로 조립, SwiftUI ViewBuilder', 'Singleton — 왜 테스트를 어렵게 만드는가', 'Dependency Injection — 외부에서 주입받는 것의 장점'] },
           { name: '행동 패턴', sub: '객체 간 통신 정리', details: ['Observer — @Published, Combine, NotificationCenter 비교', 'Strategy — 알고리즘을 런타임에 교체하기', 'Command — 작업을 객체로 표현, undo/redo', 'State — 상태에 따라 행동이 달라지는 객체', 'Coordinator — 화면 전환 책임 분리'] },
           { name: '아키텍처 패턴', sub: '앱 전체 구조를 어떻게 잡을 것인가', details: ['MVC — UIKit 기본, 왜 Massive ViewController가 되는가', 'MVVM — ViewModel로 로직 분리, 테스트 가능하게', 'Repository — 데이터 소스를 추상화하는 레이어', 'Clean Architecture — 의존성 방향 원칙', 'TCA — The Composable Architecture 입문'] },
+          { name: 'DI와 테스트의 연결', sub: 'S3에서 심은 구조, S7에서 꽃핀다', details: ['Protocol DI 없이는 Mock 객체를 주입할 수 없다 — 구조가 테스트 가능성을 결정한다', 'S7 미리보기: let vm = LoginViewModel(auth: MockAuthService())', 'XCTAssertTrue(vm.isLoggedIn) — 서버 없이 100% 재현되는 테스트', '이 한 줄이 가능한 이유: 지금 배우는 Protocol DI', 'Test Double 종류 — Mock(행동 검증), Stub(응답 고정), Fake(간단 구현)의 차이'] },
         ]
       },
       {
@@ -252,14 +268,14 @@ const STAGES = [
     ]
   },
   {
-    id: 's4', n: '4', ico: '💀', title: '"앱이 죽는다"',
-    color: 'var(--s4)', theme: 's4-theme', link: 'https://m1zz.github.io/ios-concept-lab/',
-    problem: 'EXC_BAD_ACCESS 크래시 / 메모리 경고 후 강제 종료 / deinit이 불리지 않습니다',
-    solve: 'ARC 원리, 순환 참조, weak/unowned, Instruments, 에러 처리',
-    analogy: '🚲 정비할 줄 아는 자전거',
-    status: '메모리 누수를 찾아서 고칠 수 있습니다. ARC를 이해하고, weak/unowned를 정확히 씁니다. Instruments로 Leak을 잡고, 에러를 우아하게 처리합니다. 크래시 없는 안정적인 앱을 만들 수 있습니다.',
-    gap: '오프라인에서만 동작하는 앱입니다. 서버 데이터를 가져오고 싶은데 URLSession이 복잡하게 생겼습니다. JSON을 파싱하고 로컬에 저장하는 방법을 모릅니다.',
-    next: '자전거는 완벽해졌습니다. 하지만 혼자 힘으로만 갑니다. 엔진이 필요합니다.',
+    id: 's4', n: '4', ico: '🧠', title: '"앱이 죽는다"',
+    color: 'var(--s4)', theme: 's4-theme',
+    problem: '앱이 갑자기 죽습니다 / [weak self]를 써야 한다는데 이유를 모릅니다 / deinit이 불리지 않습니다',
+    solve: 'ARC, Stack vs Heap, 강한 참조 순환, Instruments 메모리 분석, 에러 처리 완전 정복',
+    analogy: '🔧 엔진룸',
+    status: '앱이 죽는 이유를 설명할 수 있습니다. ARC가 메모리를 어떻게 관리하는지, [weak self]가 왜 필요한지 이해합니다. Instruments로 메모리 누수를 찾아 고칠 수 있고, 크래시 원인을 분석합니다. 앱이 조용히 실패하지 않도록 에러를 올바르게 처리합니다.',
+    gap: 'URLSession 완료 핸들러에서 [weak self]를 쓰라는데 왜인지 모릅니다. 화면을 닫아도 네트워크 객체가 메모리에 남아있는 것 같습니다. Instruments에 Leak이 잡힙니다.',
+    next: '오토바이를 탈 수 있게 됐습니다. 그런데 엔진에서 이상한 냄새가 납니다. 제대로 정비하는 법을 배워야 합니다.',
     chapters: [
       {
         id: '4-1', ico: '🧠', title: '메모리가 어떻게 관리되는가',
@@ -349,7 +365,7 @@ const STAGES = [
           ],
           answer: {
             sync: { tag: 'A를 선택했다면', code: '// 메인 스레드에서 직접 호출<br>let data = try Data(contentsOf: url)<br>// ⚠️ 응답 올 때까지 앱이 멈춥니다<br>// 사용자: "앱이 죽었나?"', effectLabel: 'UI 반응성', effectWidth: '85%', effectValue: '요청 중 앱 멈춤 — 3초간 무응답', body: '메인 스레드에서 동기적으로 네트워크 요청을 보내면, 응답이 돌아올 때까지 UI가 완전히 멈춥니다. 사용자는 앱이 죽은 것으로 인식하며, iOS가 강제 종료할 수도 있습니다.', correct: false },
-            asyncAwait: { tag: 'B를 선택했다면', code: 'let (data, _) = try await<br>&nbsp;&nbsp;URLSession.shared.data(from: url)<br>// ✅ 기다리는 동안 UI는 정상 작동<br>// 사용자: 로딩 스피너가 돌아갑니다', effectLabel: 'UI 반응성', effectWidth: '8%', effectValue: '비동기 처리 — UI 정상', body: 'async/await를 사용하면 네트워크 요청이 백그라운드에서 처리되며, 기다리는 동안에도 UI는 정상적으로 반응합니다. 사용자 경험을 해치지 않는 올바른 방식입니다.', correct: true }
+            asyncAwait: { tag: 'B를 선택했다면', code: 'let (data, _) = try await<br>&nbsp;&nbsp;URLSession.shared.data(from: url)<br>// ✅ 기다리는 동안 UI는 정상 작동<br>// 사용자: 로딩 스피너가 돌아갑니다', effectLabel: 'UI 반응성', effectWidth: '8%', effectValue: '비동기 처리 — UI 정상', body: 'async/await를 사용하면 네트워크 요청이 백그라운드에서 처리되며, 기다리는 동안에도 UI는 정상적으로 반응합니다. 사용자 경험을 해치지 않는 올바른 방식입니다.<br><br><em>📌 미리보기: async/await 문법의 원리(스레드, Task, await 동작)는 S6에서 깊이 다룹니다. 지금은 "비동기 방식이 왜 필요한가"에 집중하세요.</em>', correct: true }
           }
         },
         topics: [
@@ -487,7 +503,7 @@ const STAGES = [
     analogy: '🚗 보험과 정비소가 있는 자동차',
     status: '테스트를 작성하고, CI/CD로 자동 배포합니다. 크래시 리포트를 분석하고, 사용자 행동을 추적합니다. 앱으로 수익을 냅니다. 혼자서 앱을 만들고, 배포하고, 운영하고, 돈을 버는 완전한 독립 개발자입니다.',
     gap: '"왜 이렇게 동작하는가"의 근본 원리를 모릅니다. CPU가 코드를 어떻게 실행하는지, 컴파일러가 무엇을 하는지, async/await이 OS 레벨에서 어떻게 구현되는지 설명할 수 없습니다.',
-    next: '자동차를 잘 운전합니다. 하지만 엔진이 어떻게 돌아가는지는 모릅니다.',
+    next: '자동차를 잘 운전합니다. 하지만 엔진이 어떻게 돌아가는지는 모릅니다. 🔭 S8에서 CPU, 컴파일러, OS 원리를 파고듭니다.',
     chapters: [
       {
         id: '7-1', ico: '✅', title: '테스트 작성하기',
